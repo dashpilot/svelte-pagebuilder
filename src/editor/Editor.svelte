@@ -8,6 +8,8 @@
 	export let layouts;
 	
 	let editing = false;
+	let adding = false;
+	
 	let curIndex = false;
 	let curLayout = false;
 	
@@ -36,15 +38,44 @@
 				curLayout = layouts.filter(x => x.layout == mylayout)[0]
 				
 				console.log(curLayout)
-				
-				
-		  
+		
 		  })
 		  
 		})
 		
 	});
-	  
+	
+	
+	function add(layout){
+		
+		
+		let newItem = {};
+		
+		newItem.id = "item-"+Date.now();
+		newItem.layout = layout.layout;
+		Object.keys(layout.fields).forEach((key)=>{
+			
+			if(layout.fields[key]=='txt'){
+				newItem[key] = "Lorem Ipsum"
+			}
+			if(layout.fields[key]=='rte'){
+				newItem[key] = "Lorem ipsum dolor site amet"
+			}
+			if(layout.fields[key]=='img'){
+				newItem[key] = ""
+			}
+			
+		})
+		
+		console.log(newItem)
+		
+		data.items.unshift(newItem);
+		
+		data = data;
+		
+		adding = false;
+		
+	}  
 	
 </script> 
  
@@ -90,6 +121,33 @@
 {/if}
 
 
+{#if adding}
+
+<div class="content-editor editor-start" in:fly="{{ x: -350, duration: 500 }}" out:fly="{{ x: -350, duration: 150 }}">
+  
+  <h5 class="float-start">Add Content</h5>
+  
+ <button type="button" class="btn-close float-end mb-3" aria-label="Close" on:click={() => adding = false}></button>
+
+<div class="clear"></div>
+
+{#each layouts as layout}
+
+<div class="box" on:click={() => add(layout)}>
+	
+	{layout.layout}
+	
+</div>
+
+{/each}
+  
+</div>  
+{/if}
+
+
+<button class="btn btn-dark" on:click={()=>adding = true}>Add Button</button>
+
+
 <style>
 	.content-editor {
 	  width: 400px;
@@ -114,6 +172,11 @@
 		-webkit-text-size-adjust: 100%;
 	}
 	
+	.editor-start{
+		right: auto;
+		left: 0;
+	}
+	
 	.label{
 		text-transform: uppercase;
 		letter-spacing: 0.03em;
@@ -123,5 +186,20 @@
 	
 	.form-control{
 		margin-bottom: 15px;
+	}
+	
+	.clear{
+		clear: both;
+	}
+	
+	.box{
+		border: 1px solid #CCC;
+		padding: 10px;
+		margin-bottom: 10px;
+	}
+	
+	h5{
+		color: black;
+		padding-top: 1px;
 	}
 </style>
