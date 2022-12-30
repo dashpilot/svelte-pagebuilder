@@ -198,7 +198,7 @@
 		  </div>
 		  <div class="modal-footer">
 			  
-			  <button class="btn btn-dark" on:click={doPublish}><i class="fas fa-sign-out-alt"></i> &nbsp;Publish</button>
+			  <button class="btn btn-dark" on:click={doPublish}><i class="fas fa-rocket"></i> &nbsp;Publish</button>
 			  
 		  </div>
 		</div>
