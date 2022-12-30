@@ -2,6 +2,13 @@
   import { onMount } from 'svelte';
   import Editor from "./editor/Editor.svelte"
   
+  import User from "./editor/User.svelte"
+  import { auth, db } from './editor/firebase';
+  let user = false; 
+  let showAccount = false;
+  
+
+  
   import Intro from "./blocks/Intro.svelte"
   import TwoCol from "./blocks/TwoCol.svelte"
   
@@ -50,7 +57,9 @@
 
 </script>
 
+<User bind:user bind:showAccount />
 
+{#if user}
 <div class="container mt-5">
 
 {#each data.items as item}
@@ -66,5 +75,7 @@
 </div>
 
 
-<Editor bind:data bind:layouts />
+<Editor bind:data bind:layouts bind:user bind:showAccount />
+  
+{/if}
 

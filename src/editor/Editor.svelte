@@ -1,17 +1,24 @@
 <script>
 	import { onMount } from 'svelte';
 	import { fade, fly } from 'svelte/transition';
+	
+
 	import TipTap from "./widgets/TipTap.svelte"
 	import Image from "./widgets/Image.svelte"
 	
 	export let data;
 	export let layouts;
+	export let user;
+	
+	export let showAccount;
 	
 	let editing = false;
 	let adding = false;
 	
 	let curIndex = false;
 	let curLayout = false;
+	
+	let showPublish = false;
 	
 	onMount(async () => {
 		
@@ -93,8 +100,17 @@
 		
 	}  
 	
+	
+	function doPublish(){
+		alert('Not available yet')
+	}
+	
 </script> 
- 
+
+
+
+	
+
  
 {#if editing}
 
@@ -164,11 +180,48 @@
 {/if}
 
 
-<div class="dock">
 
-<img src="img/add.png" class="grow" on:click={showAdd} />
+{#if showPublish}
+<div class="backdrop">
+	
+	<div class="modal" style="display:block;">
+	  <div class="modal-dialog">
+		<div class="modal-content">
+		  <div class="modal-header pt-4">
+			<h5 class="modal-title">Publish your page</h5>
+			<button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close" on:click="{() => showPublish = false}"></button>
+		  </div>
+		  <div class="modal-body">
+			  
+			  Publish your page
+			 
+		  </div>
+		  <div class="modal-footer">
+			  
+			  <button class="btn btn-dark" on:click={doPublish}><i class="fas fa-sign-out-alt"></i> &nbsp;Publish</button>
+			  
+		  </div>
+		</div>
+		
+	  </div>
+	</div>
+</div>
+{/if}
+
+
+
+<div class="dock">
+	
+<img src="img/account.png" class="grow" on:click={() => showAccount = true} />
+
+<img src="img/plus.png" class="grow" on:click={showAdd} />
+
+<img src="img/publish.png" class="grow" on:click={() => showPublish = true} />
 
 </div>
+
+
+
 
 
 <style>
@@ -231,15 +284,17 @@
 	.dock{
 		text-align: center;
 		position: fixed;
-		bottom: 15px;
+		bottom: 20px;
 		left: 0;
 		width: 100%;
 		
 	}
 	
 	.dock img{
+		margin: 0px 5px;
 		width: 65px;
 	}
+
 	
 	.grow { transition: all .2s ease-in-out; }
 	.grow:hover { transform: scale(1.1); cursor: pointer; }

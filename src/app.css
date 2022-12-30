@@ -55,3 +55,7 @@ section {
   border-top: 0;
   background-color: #ffffff;
 }
+
+.modal {
+  color: black;
+}
