@@ -102,7 +102,7 @@
 	
 	
 	function doPublish(){
-		alert('Not available yet')
+		alert('This feature is not available yet')
 	}
 	
 </script> 
