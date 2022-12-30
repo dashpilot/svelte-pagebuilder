@@ -13,6 +13,11 @@
 		  
 		  el.addEventListener('click', (e)=>{
 			  
+			  document.querySelectorAll('.editing').forEach((myel)=>{
+				  myel.classList.remove('editing');
+			  })
+			  e.originalTarget.closest('.edit').classList.add('editing');
+			  
 			  if(editing == true){
 				  editing = false;
 			

@@ -289,7 +289,8 @@ h4 a:hover {
   border: 1px solid transparent;
 }
 
-.edit:hover {
+.edit:hover,
+.editing {
   cursor: pointer;
   border: 1px dashed #eee;
 }
