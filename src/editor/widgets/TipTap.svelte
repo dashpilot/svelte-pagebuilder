@@ -5,8 +5,8 @@
   import Image from '@tiptap/extension-image'
   import Link from '@tiptap/extension-link'
   
-  let key = "body";
-  // export let key;
+  export let item;
+  export let key;
   export let html;
   
   if(typeof html === 'undefined'){
@@ -26,14 +26,15 @@
 		  openOnClick: false,
 		}),
 	  ],
-	  content: html,
+	  content: item[key],
 	  onTransaction: () => {
 		// force re-render so `editor.isActive` works as expected
 		editor = editor
 		
 	  },
 	  onUpdate({ editor }) {
-		html = editor.getHTML()
+		// html = editor.getHTML()
+		item[key] = editor.getHTML()
 		console.log(html)
 	  },
 	})

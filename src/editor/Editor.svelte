@@ -50,14 +50,23 @@
   {#each Object.keys(data.items[curIndex]) as mykey}
   
   
-  {#if mykey.split('_')[0] == 'rte'}
+  {#if mykey.split('_')[1] == 'txt'}
+  <div class="label">{mykey.split('_')[0]}</div>
+		<input type="text" class="form-control" bind:value={data.items[curIndex][mykey]} />
+	{/if}
+  
+  
+  {#if mykey.split('_')[1] == 'rte'}
   	{#key data.items[curIndex].id}
+	  
+	  <div class="label">{mykey.split('_')[0]}</div>
 	  <TipTap bind:item={data.items[curIndex]} bind:key={mykey} />
     {/key}
   {/if}
 
   
-  {#if mykey.split('_')[0] == 'img'}
+  {#if mykey.split('_')[1] == 'img'}
+  	<div class="label">{mykey.split('_')[0]}</div>
   	<Image bind:item={data.items[curIndex]} bind:key={mykey} />
   {/if}
   
@@ -81,6 +90,7 @@
 	  padding-top: 15px;
 	  background-color: white;
 	  border-left: 1px solid #ced4da;
+	  color: #777;
 	  
 	  font-family: Inter, Avenir, Helvetica, Arial, sans-serif;
 		font-size: 16px;
@@ -91,6 +101,13 @@
 		-webkit-font-smoothing: antialiased;
 		-moz-osx-font-smoothing: grayscale;
 		-webkit-text-size-adjust: 100%;
+	}
+	
+	.label{
+		text-transform: uppercase;
+		letter-spacing: 0.03em;
+		font-size: 14px;
+		margin-bottom: 3px;
 	}
 	
 	.form-control{
