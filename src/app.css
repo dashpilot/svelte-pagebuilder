@@ -292,7 +292,7 @@ h4 a:hover {
 .edit:hover,
 .editing {
   cursor: pointer;
-  border: 1px dashed #eee;
+  border: 1px dashed #ced4da;
 }
 
 .ProseMirror,
