@@ -1,4 +1,5 @@
 <script>
+	import { auth, googleProvider} from './firebase';
 	export let showPublish;
 	export let data;
 	
@@ -31,7 +32,7 @@
 	async function call_api(route, mydata) {
 	
 	  try {
-		const idToken = await firebase.auth().currentUser.getIdToken(true);
+		const idToken = await auth.currentUser.getIdToken(true);
 	
 		var settings = {
 		  method: 'post',

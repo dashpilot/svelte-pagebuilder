@@ -1,6 +1,6 @@
 <script>
   import { onMount } from 'svelte';
-  import { auth, googleProvider, twitterProvider } from './firebase';
+  import { auth, googleProvider} from './firebase';
   
   export let user;
   export let showAccount;
