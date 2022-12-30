@@ -64,12 +64,18 @@
 		
 		loading = true;
 		
-		let result = await setData("s3", "data.json", "json", data);
 		
-		console.log(result)
+			let result = await setData("s3", "data.json", "json", data);
+			
+			console.log("result: "+result)
+			
+		setTimeout(()=>{	
+			loading = false;
+			done = true;
+			
+		}, 1000)
 		
-		loading = false;
-		done = true;
+		
 	}
 	
 </script>
