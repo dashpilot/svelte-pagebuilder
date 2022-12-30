@@ -2,8 +2,7 @@
 	
 	import { onMount } from 'svelte';
 	
-	// export let key;
-	let key = "image"
+	export let key;
 	export let item;
 	// export let settings;
 	
@@ -53,7 +52,7 @@
 	
 		  console.log(base64Image);
 		  
-		  item = base64Image;
+		  item[key] = base64Image;
 		  
 		  /*
 		  let opts = {};
