@@ -43,12 +43,19 @@
 				curLayout = layouts.filter(x => x.layout == mylayout)[0]
 				
 				console.log(curLayout)
+				
+				adding = false;
 		
 		  })
 		  
 		})
 	}
 	
+	
+	function showAdd(){
+		adding = true;
+		editing = false;
+	}
 	
 	function add(layout){
 		
@@ -154,7 +161,11 @@
 {/if}
 
 
-<button class="btn btn-dark" on:click={()=>adding = true}>Add Button</button>
+<div class="dock">
+
+<img src="img/add.png" class="grow" on:click={showAdd} />
+
+</div>
 
 
 <style>
@@ -211,4 +222,20 @@
 		color: black;
 		padding-top: 1px;
 	}
+	
+	.dock{
+		text-align: center;
+		position: fixed;
+		bottom: 15px;
+		left: 0;
+		width: 100%;
+		
+	}
+	
+	.dock img{
+		width: 65px;
+	}
+	
+	.grow { transition: all .2s ease-in-out; }
+	.grow:hover { transform: scale(1.1); cursor: pointer; }
 </style>
