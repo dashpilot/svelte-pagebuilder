@@ -3,6 +3,9 @@
 	export let showPublish;
 	export let data;
 	
+	let loading = false;
+	let done = false;
+	
 	function setData(service, path, type, content) {
 	  let opts = {};
 	  opts.path = path;
@@ -59,9 +62,14 @@
 	
 	async function doPublish(){
 		
+		loading = true;
+		
 		let result = await setData("s3", "data.json", "json", data);
 		
 		console.log(result)
+		
+		loading = false;
+		done = true;
 	}
 	
 </script>
@@ -78,12 +86,31 @@
 		  </div>
 		  <div class="modal-body">
 			  
+			  {#if loading}
+			  Publishing...
+			  
+			  {:else if !done}
 			  Publish your page
+			  
+			  {/if}
+			  
+			  {if done}
+			  Your site has been published!
+			  {/if}
+			  
 			 
 		  </div>
 		  <div class="modal-footer">
 			  
-			  <button class="btn btn-dark" on:click={doPublish}><i class="fas fa-rocket"></i> &nbsp;Publish</button>
+			  <button class="btn btn-dark" on:click={doPublish}>
+				  
+				  {#if loading}
+				<i class="fas fa-spinner fa-spin"></i> 
+				  {:else}
+				  <i class="fas fa-rocket"></i> 
+				  {/if}
+				  
+				  &nbsp;Publish</button>
 			  
 		  </div>
 		</div>
