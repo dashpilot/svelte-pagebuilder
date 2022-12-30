@@ -38,9 +38,9 @@
 				curIndex = index;
 				editing = true;
 				
-				let mylayout = data.items[curIndex].layout;
+				let mycomponent = data.items[curIndex].component;
 				
-				curLayout = layouts.filter(x => x.layout == mylayout)[0]
+				curLayout = layouts.filter(x => x.component == mycomponent)[0]
 				
 				console.log(curLayout)
 				
@@ -63,7 +63,7 @@
 		let newItem = {};
 		
 		newItem.id = "item-"+Date.now();
-		newItem.layout = layout.layout;
+		newItem.component = layout.component;
 		Object.keys(layout.fields).forEach((key)=>{
 			
 			if(layout.fields[key]=='txt'){
@@ -151,7 +151,7 @@
 
 <div class="box" on:click={() => add(layout)}>
 	
-	{layout.layout}
+	{layout.name}
 	
 </div>
 

@@ -6,13 +6,15 @@
   import TwoCol from "./blocks/TwoCol.svelte"
   
   let layouts = [{
-      "layout": "Intro",
+      "component": "Intro",
+      "name": "Intro",
       "fields": {
         "title":"txt",
         "body": "rte"
       }
     },{
-    "layout": "TwoCol",
+    "component": "TwoCol",
+    "name": "Two Columns",
     "fields": {
       "title":"txt",
       "body": "rte",
@@ -23,13 +25,13 @@
   let data = {
     "items": [{
       "id": "item-1",
-      "layout": "Intro",
+      "component": "Intro",
       "title": "Hello World",
       "body": "<p>Lorem ipsum dolor site amet</p>"
     },
   {
     "id": "item-2",
-    "layout": "TwoCol",
+    "component": "TwoCol",
     "title": "Second Item",
     "subtitle": "",
     "body": "<p>Lorem ipsum dolor site lila</p>",
@@ -52,11 +54,11 @@
 <div class="container mt-5">
 
 {#each data.items as item}
-  {#if item.layout == 'Intro'}
+  {#if item.component == 'Intro'}
   <Intro bind:item={item} />
   {/if}
   
-  {#if item.layout == 'TwoCol'}
+  {#if item.component == 'TwoCol'}
   <TwoCol bind:item={item} />
   {/if}
 {/each}
