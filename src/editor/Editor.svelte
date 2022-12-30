@@ -99,9 +99,12 @@
 {#if editing}
 
 <div class="content-editor" in:fly="{{ x: 350, duration: 500 }}" out:fly="{{ x: 350, duration: 150 }}">
+	
+	<h5 class="float-start">Edit</h5>
   
  <button type="button" class="btn-close float-end mb-3" aria-label="Close" on:click={() => editing = false}></button>
 
+<div class="clear"></div>
 
   {#each Object.keys(curLayout.fields) as mykey}
 
