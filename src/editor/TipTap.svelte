@@ -123,9 +123,9 @@
  </button>
  </template>
  
-
- -->
 	 <button class="btn btn btn-outline-secondary w-50" disabled></button>
+ -->
+
   
    </div>
    
@@ -155,7 +155,7 @@
   
 button{
   border: 1px solid #ddd;
-  width: 20px !important;
+  width: 25% !important;
 }
 
 button:hover{
