@@ -94,7 +94,7 @@
 			  
 			  {/if}
 			  
-			  {if done}
+			  {#if done}
 			  Your site has been published!
 			  {/if}
 			  
