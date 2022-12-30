@@ -5,11 +5,16 @@
 	import Image from "./widgets/Image.svelte"
 	
 	export let data;
+	export let layouts;
 	
 	let editing = false;
 	let curIndex = false;
+	let curLayout = false;
 	
 	onMount(async () => {
+		
+		console.log(layouts)
+		
 		document.querySelectorAll('.edit').forEach((el)=>{
 		  
 		  el.addEventListener('click', (e)=>{
@@ -25,6 +30,14 @@
 				
 				curIndex = index;
 				editing = true;
+				
+				let mylayout = data.items[curIndex].layout;
+				
+				curLayout = layouts.filter(x => x.layout == mylayout)[0]
+				
+				console.log(curLayout)
+				
+				
 		  
 		  })
 		  
@@ -41,34 +54,32 @@
 <div class="content-editor" in:fly="{{ x: 350, duration: 500 }}" out:fly="{{ x: 350, duration: 150 }}">
   
  <button type="button" class="btn-close float-end mb-3" aria-label="Close" on:click={() => editing = false}></button>
- 
-  <input type="text" class="form-control" bind:value={data.items[curIndex].title}>
-  
- 
 
 
-  {#each Object.keys(data.items[curIndex]) as mykey}
-  
-  
-  {#if mykey.split('_')[1] == 'txt'}
-  <div class="label">{mykey.split('_')[0]}</div>
+  {#each Object.keys(curLayout.fields) as mykey}
+
+
+  {#if curLayout.fields[mykey] == 'txt'}
+  <div class="label">{mykey}</div>
 		<input type="text" class="form-control" bind:value={data.items[curIndex][mykey]} />
 	{/if}
   
   
-  {#if mykey.split('_')[1] == 'rte'}
+  {#if curLayout.fields[mykey] == 'rte'}
   	{#key data.items[curIndex].id}
 	  
-	  <div class="label">{mykey.split('_')[0]}</div>
+	  <div class="label">{mykey}</div>
 	  <TipTap bind:item={data.items[curIndex]} bind:key={mykey} />
     {/key}
   {/if}
 
   
-  {#if mykey.split('_')[1] == 'img'}
-  	<div class="label">{mykey.split('_')[0]}</div>
+  {#if curLayout.fields[mykey] == 'img'}
+  	<div class="label">{mykey}</div>
   	<Image bind:item={data.items[curIndex]} bind:key={mykey} />
   {/if}
+  
+
   
   {/each}
 	

@@ -1,21 +1,35 @@
 <script>
+  import { onMount } from 'svelte';
   import Editor from "./editor/Editor.svelte"
+  
+  import Intro from "./blocks/Intro.svelte"
+  import TwoCol from "./blocks/TwoCol.svelte"
+  
+  let layouts = [];
+
  
+  onMount(async () => {
+   
+      // 'layouts' contains the names and fields of the registered components
+      console.log(layouts)
+    
+  })
+  
+  
   let data = {
     "items": [{
       "id": "item-1",
-      "layout": "2-col",
+      "layout": "Intro",
       "title": "Hello World",
-      "body_rte": "<p>Lorem ipsum dolor site amet</p>",
-      "subtitle_txt": "",
-      "image_img": ""
+      "body": "<p>Lorem ipsum dolor site amet</p>"
     },
   {
     "id": "item-2",
-    "layout": "2-col",
+    "layout": "TwoCol",
     "title": "Second Item",
-    "body_rte": "<p>Lorem ipsum dolor site lila</p>",
-    "image_img": ""
+    "subtitle": "",
+    "body": "<p>Lorem ipsum dolor site lila</p>",
+    "image": ""
   }]
   }
 
@@ -25,22 +39,17 @@
 <div class="container mt-5">
 
 {#each data.items as item}
-  <section id="{item.id}" class="edit">
-    <h1>{item.title}</h1>
-    <p>{@html item.body_rte}</p>
-    
-    {#if item.subtitle_txt}
-    {item.subtitle_txt}
-    {/if}
-    
-    {#if item.image_img}
-    <img src={item.image_img} class="img-fluid" />
-    {/if}
-  </section>
+  {#if item.layout == 'Intro'}
+  <Intro bind:item={item} bind:layouts />
+  {/if}
+  
+  {#if item.layout == 'TwoCol'}
+  <TwoCol bind:item={item} bind:layouts />
+  {/if}
 {/each}
 
 </div>
 
 
-<Editor bind:data />
+<Editor bind:data bind:layouts />
 
