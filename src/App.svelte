@@ -5,16 +5,20 @@
   import Intro from "./blocks/Intro.svelte"
   import TwoCol from "./blocks/TwoCol.svelte"
   
-  let layouts = [];
-
- 
-  onMount(async () => {
-   
-      // 'layouts' contains the names and fields of the registered components
-      console.log(layouts)
-    
-  })
-  
+  let layouts = [{
+      "layout": "Intro",
+      "fields": {
+        "title":"txt",
+        "body": "rte"
+      }
+    },{
+    "layout": "TwoCol",
+    "fields": {
+      "title":"txt",
+      "body": "rte",
+      "image": "img"
+    }
+  }];
   
   let data = {
     "items": [{
@@ -32,6 +36,15 @@
     "image": ""
   }]
   }
+  
+  
+   
+  onMount(async () => {
+   
+      // 'layouts' contains the names and fields of the registered components
+      console.log(layouts)
+    
+  })
 
 </script>
 
@@ -40,11 +53,11 @@
 
 {#each data.items as item}
   {#if item.layout == 'Intro'}
-  <Intro bind:item={item} bind:layouts />
+  <Intro bind:item={item} />
   {/if}
   
   {#if item.layout == 'TwoCol'}
-  <TwoCol bind:item={item} bind:layouts />
+  <TwoCol bind:item={item} />
   {/if}
 {/each}
 
