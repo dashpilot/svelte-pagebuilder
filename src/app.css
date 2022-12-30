@@ -308,6 +308,7 @@ h4 a:hover {
   outline: none;
   border-radius: 0 0 6px 6px;
   margin-bottom: 20px;
+  margin-top: 0;
   border-top: 0;
   background-color: #ffffff;
 }
