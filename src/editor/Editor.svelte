@@ -1,6 +1,7 @@
 <script>
 	import { onMount } from 'svelte';
 	import { fade, fly } from 'svelte/transition';
+	import Publish from "./Publish.svelte"
 	
 
 	import TipTap from "./widgets/TipTap.svelte"
@@ -101,9 +102,7 @@
 	}  
 	
 	
-	function doPublish(){
-		alert('This feature is not available yet')
-	}
+	
 	
 </script> 
 
@@ -182,30 +181,7 @@
 
 
 {#if showPublish}
-<div class="backdrop">
-	
-	<div class="modal" style="display:block;">
-	  <div class="modal-dialog">
-		<div class="modal-content">
-		  <div class="modal-header pt-4">
-			<h5 class="modal-title">Publish your page</h5>
-			<button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close" on:click="{() => showPublish = false}"></button>
-		  </div>
-		  <div class="modal-body">
-			  
-			  Publish your page
-			 
-		  </div>
-		  <div class="modal-footer">
-			  
-			  <button class="btn btn-dark" on:click={doPublish}><i class="fas fa-rocket"></i> &nbsp;Publish</button>
-			  
-		  </div>
-		</div>
-		
-	  </div>
-	</div>
-</div>
+<Publish bind:showPublish bind:data />
 {/if}
 
 
