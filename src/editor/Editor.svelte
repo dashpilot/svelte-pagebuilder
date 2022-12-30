@@ -18,25 +18,12 @@
 			  })
 			  e.originalTarget.closest('.edit').classList.add('editing');
 			  
-			  if(editing == true){
-				  editing = false;
-			
-			  	setTimeout(()=>{
-				
-					let id = e.originalTarget.closest('.edit').getAttribute('id');
-					let index = data.items.findIndex(x => x.id == id);
-					
-					curIndex = index;
-					editing = true;
-				
-				}, 400)
-			}else{
+			  
 				let id = e.originalTarget.closest('.edit').getAttribute('id');
 				let index = data.items.findIndex(x => x.id == id);
 				
 				curIndex = index;
 				editing = true;
-			}
 		  
 		  })
 		  
@@ -48,16 +35,18 @@
 </script> 
  
  
- {#if editing}
+{#if editing}
+
 <div class="content-editor" in:fly="{{ x: 350, duration: 700 }}" out:fly="{{ x: 350, duration: 150 }}">
   
  <button type="button" class="btn-close float-end mb-3" aria-label="Close" on:click={() => editing = false}></button>
  
   <input type="text" class="form-control" bind:value={data.items[curIndex].title}>
 
-  
+  <!-- force rerender with #key -->
+  {#key data.items[curIndex]}
   <TipTap bind:html={data.items[curIndex].body} />
-
+  {/key}
   
   
 </div>  
