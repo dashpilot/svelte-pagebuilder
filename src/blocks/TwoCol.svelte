@@ -8,7 +8,7 @@
 	
 	<p>{@html item.body}</p>
 	
-	{#if item.image_img}
+	{#if item.image}
 	<img src={item.image} class="img-fluid" />
 	{/if}
 

@@ -15,8 +15,13 @@
 	
 	onMount(async () => {
 		
-		console.log(layouts)
+	
+		makeEditable()
+	
 		
+	});
+	
+	function makeEditable(){
 		document.querySelectorAll('.edit').forEach((el)=>{
 		  
 		  el.addEventListener('click', (e)=>{
@@ -42,8 +47,7 @@
 		  })
 		  
 		})
-		
-	});
+	}
 	
 	
 	function add(layout){
@@ -62,7 +66,7 @@
 				newItem[key] = "Lorem ipsum dolor site amet"
 			}
 			if(layout.fields[key]=='img'){
-				newItem[key] = ""
+				newItem[key] = "img/placeholder.jpg"
 			}
 			
 		})
@@ -74,6 +78,11 @@
 		data = data;
 		
 		adding = false;
+		
+		setTimeout(()=>{
+			makeEditable()
+		}, 50)
+		
 		
 	}  
 	
