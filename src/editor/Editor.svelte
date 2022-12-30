@@ -1,8 +1,8 @@
 <script>
 	import { onMount } from 'svelte';
 	import { fade, fly } from 'svelte/transition';
-	import TipTap from "./TipTap.svelte"
-	import Image from "./Image.svelte"
+	import TipTap from "./widgets/TipTap.svelte"
+	import Image from "./widgets/Image.svelte"
 	
 	export let data;
 	
@@ -43,18 +43,26 @@
  <button type="button" class="btn-close float-end mb-3" aria-label="Close" on:click={() => editing = false}></button>
  
   <input type="text" class="form-control" bind:value={data.items[curIndex].title}>
+  
+ 
 
-  <!-- force rerender with #key -->
-  {#key data.items[curIndex]}
-  <TipTap bind:html={data.items[curIndex].body} />
-  {/key}
+
+  {#each Object.keys(data.items[curIndex]) as mykey}
   
   
-  <Image bind:item={data.items[curIndex].image} />
-	  
-	 
+  {#if mykey.split('_')[0] == 'rte'}
+  	{#key data.items[curIndex].id}
+	  <TipTap bind:item={data.items[curIndex]} bind:key={mykey} />
+    {/key}
+  {/if}
+
   
+  {#if mykey.split('_')[0] == 'img'}
+  	<Image bind:item={data.items[curIndex]} bind:key={mykey} />
+  {/if}
   
+  {/each}
+	
   <button class="btn btn-dark" on:click={() => editing = false}>Save</button>
   
   
@@ -64,7 +72,7 @@
 
 <style>
 	.content-editor {
-	  width: 450px;
+	  width: 400px;
 	  position: fixed;
 	  top: 0;
 	  right: 0;
