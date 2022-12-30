@@ -173,6 +173,7 @@
 
 <style>
 	.content-editor {
+	  max-width: 100%;
 	  width: 400px;
 	  position: fixed;
 	  top: 0;
@@ -183,6 +184,7 @@
 	  background-color: white;
 	  border-left: 1px solid #ced4da;
 	  color: #777;
+	  z-index: 999;
 	  
 	  font-family: Inter, Avenir, Helvetica, Arial, sans-serif;
 		font-size: 16px;
