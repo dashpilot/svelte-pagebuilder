@@ -95,7 +95,7 @@
 
 
 <input type="file" id="fileInput" class="fileInput" accept="image/*" data-name="{key}" />
-<button class="btn btn-outline-secondary mb-3" on:click="{() => clickSelect(key)}">Upload Image</button>
+<button class="btn btn-outline-secondary mb-4" on:click="{() => clickSelect(key)}">Upload Image</button>
 <br>
 	
 <style>

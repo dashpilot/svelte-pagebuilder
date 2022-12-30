@@ -30,7 +30,10 @@
   <section id="{item.id}" class="edit">
     <h1>{item.title}</h1>
     <p>{@html item.body}</p>
+    
+    {#if item.image}
     <img src={item.image} class="img-fluid" />
+    {/if}
   </section>
 {/each}
 

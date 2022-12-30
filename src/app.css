@@ -302,7 +302,7 @@ h4 a:hover {
 
 .ProseMirror {
   display: block;
-  min-height: 250px !important;
+  min-height: 150px !important;
   border: 1px solid #ddd;
   padding: 15px;
   outline: none;

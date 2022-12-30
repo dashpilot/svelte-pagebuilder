@@ -70,6 +70,7 @@
 	  right: 0;
 	  height: 100%;
 	  padding: 20px;
+	  padding-top: 15px;
 	  background-color: white;
 	  border-left: 1px solid #ced4da;
 	  
