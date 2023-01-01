@@ -274,7 +274,7 @@
 	
 	.dock img{
 		margin: 0px 5px;
-		width: 65px;
+		width: 55px;
 	}
 
 	
