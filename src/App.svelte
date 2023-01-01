@@ -7,7 +7,7 @@
   let user = false; 
   let showAccount = false;
   
-
+let index;
   
   import Intro from "./blocks/Intro.svelte"
   import TwoCol from "./blocks/TwoCol.svelte"
@@ -33,21 +33,21 @@
     "items": [{
       "id": "item-1",
       "component": "Intro",
-      "title": "Hello World",
+      "title": "LandingCards",
       "body": "<p>Lorem ipsum dolor site amet</p>"
     },
   {
     "id": "item-2",
     "component": "TwoCol",
-    "title": "Second Item",
+    "title": "Lorem ipsum dolor",
     "subtitle": "",
     "body": "<p>Lorem ipsum dolor site lila</p>",
     "image": ""
   },
   {
     "id": "item-3",
-    "component": "TwoCol",
-    "title": "Third Item",
+    "component": "Intro",
+    "title": "Lorem ipsum dolor",
     "subtitle": "",
     "body": "<p>Lorem ipsum dolor site lila</p>",
     "image": ""
@@ -55,7 +55,7 @@
   {
     "id": "item-4",
     "component": "TwoCol",
-    "title": "Fourth Item",
+    "title": "Lorem ipsum dolor",
     "subtitle": "",
     "body": "<p>Lorem ipsum dolor site lila</p>",
     "image": ""
@@ -78,8 +78,10 @@
 {#if user}
 <div class="wrapper mt-5">
 
-{#each data.items as item}
-<div class="landing-card">
+{#each data.items as item, index}
+
+
+
   {#if item.component == 'Intro'}
   <Intro bind:item={item} />
   {/if}
@@ -87,7 +89,8 @@
   {#if item.component == 'TwoCol'}
   <TwoCol bind:item={item} />
   {/if}
-</div>
+
+
 {/each}
 
 </div>
@@ -102,27 +105,6 @@
   
  
   
-  .wrapper {
-    margin: 0 auto;
-    margin-top: 50px;
-    max-width: 768px;
-    margin-bottom: 300px;
-    padding: 15px;
-  }
   
-  .landing-card {
-    position: sticky;
-    top: 30px;
- color: white !important;
-    margin-bottom: 25px;
- 
-    border-radius: 10px;
-    box-shadow: 5px 5px 5px rgba(0, 0, 0, 0.1);
-    color: #333;
-    padding: 40px;
-    height: 400px;
-    background-color: #091a2f;
-    background-image: linear-gradient(311deg,rgba(26,188,254,.23),rgba(9,26,47,.1));
-  }
 </style>
 
