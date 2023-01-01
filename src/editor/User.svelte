@@ -1,6 +1,8 @@
 <script>
   import { onMount } from 'svelte';
+  import { fade } from 'svelte/transition';
   import { auth, googleProvider} from './firebase';
+  
   
   export let user;
   export let showAccount;
@@ -75,7 +77,7 @@
 {/if}
 
 {:else}
-<div class="backdrop">
+<div class="backdrop" out:fade>
 <div class="card m-auto mt-5 fade-in" style="width: 18rem; color: #222">
  
   <div class="card-body text-center">
