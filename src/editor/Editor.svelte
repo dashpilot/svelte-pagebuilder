@@ -101,7 +101,13 @@
 		
 	}  
 	
-	
+	function closeEditor(){
+		document.querySelectorAll('.editing').forEach((myel)=>{
+			  myel.classList.remove('editing');
+		  })
+		  
+		editing = false
+	}
 	
 	
 </script> 
@@ -117,7 +123,7 @@
 	
 	<h5 class="float-start">Edit</h5>
   
- <button type="button" class="btn-close float-end mb-3" aria-label="Close" on:click={() => editing = false}></button>
+ <button type="button" class="btn-close float-end mb-3" aria-label="Close" on:click={closeEditor}></button>
 
 <div class="clear"></div>
 
@@ -148,7 +154,7 @@
   
   {/each}
 	
-  <button class="btn btn-dark" on:click={() => editing = false}>Save</button>
+  <button class="btn btn-dark" on:click={closeEditor}>Save</button>
   
   
 </div>  
