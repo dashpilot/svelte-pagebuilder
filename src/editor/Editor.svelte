@@ -34,6 +34,9 @@
 		  
 		  el.addEventListener('click', (e)=>{
 			  
+			  
+			  if(!e.originalTarget.classList.contains('btn')){
+			  
 			  document.querySelectorAll('.editing').forEach((myel)=>{
 				  myel.classList.remove('editing');
 			  })
@@ -53,6 +56,8 @@
 				console.log(curLayout)
 				
 				adding = false;
+				
+				}
 		
 		  })
 		  

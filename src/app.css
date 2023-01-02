@@ -46,6 +46,11 @@ section {
   color: #333;
 
   height: 540px;
+
+  overflow: hidden;
+}
+
+.card-body {
   background-color: #1c3c59;
   background-image: linear-gradient(
     311deg,
@@ -53,7 +58,6 @@ section {
     rgba(9, 26, 47, 0.1)
   );
   box-shadow: 0 0 1em 0.5em rgba(0, 0, 0, 0.2);
-  overflow: hidden;
 }
 
 .landing-card:nth-child(1) {
@@ -94,6 +98,36 @@ section {
 
 .landing-card:nth-child(10) {
   top: 200px;
+}
+
+.card-body {
+  transition: transform 1s;
+  transform-style: preserve-3d;
+  cursor: pointer;
+  height: 100%;
+}
+
+.card-body.is-flipped {
+  transform: rotateY(180deg);
+}
+
+.card-body.is-flipped .card-front {
+  transition: opacity 0.3s;
+  opacity: 0;
+}
+
+.card__face {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+
+  -webkit-backface-visibility: hidden;
+  backface-visibility: hidden;
+}
+
+.card-back {
+  transform: rotateY(180deg);
+  padding: 100px;
 }
 
 h1,

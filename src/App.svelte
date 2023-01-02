@@ -42,7 +42,7 @@ let index;
     "items": [{
       "id": "item-1",
       "component": "Intro",
-      "title": "LandingCards",
+      "title": "SliderStack",
       "body": "<p>Lorem ipsum dolor site amet</p>"
     },
   {
@@ -77,6 +77,8 @@ let index;
    
       // 'layouts' contains the names and fields of the registered components
       console.log(layouts)
+      
+      
     
   })
 

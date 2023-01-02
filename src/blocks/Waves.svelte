@@ -1,11 +1,7 @@
 <script>
 	import { onMount } from 'svelte';
 	export let item;
-	export let index;
-	
-	
-	
-	let margin = index*20;
+
 	
 	onMount(()=>{
 		if(item.title == 'Lorem ipsum'){
@@ -15,7 +11,7 @@
 	})
 </script>
 
-<section id="{item.id}" class="edit landing-card" style="margin-top: 10px">
+<section id="{item.id}" class="edit landing-card">
 <div class="card-body">
 <div class="row h-100">
 	<div class="col-md-6">
