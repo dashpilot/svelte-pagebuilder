@@ -116,6 +116,11 @@ section {
   opacity: 0;
 }
 
+.card-body:not(.is-flipped) > .card-front {
+  transition: opacity 3s;
+  opacity: 1;
+}
+
 .card__face {
   position: absolute;
   width: 100%;
