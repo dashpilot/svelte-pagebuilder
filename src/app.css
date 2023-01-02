@@ -31,7 +31,7 @@ section {
   margin-top: 50px;
   max-width: 100%;
   width: 960px;
-  margin-bottom: 120px;
+  margin-bottom: 60px;
   padding: 15px;
 }
 
@@ -44,7 +44,7 @@ section {
   border-radius: 10px;
   box-shadow: 5px 5px 5px rgba(0, 0, 0, 0.1);
   color: #333;
-  padding: 40px;
+
   height: 540px;
   background-color: #1c3c59;
   background-image: linear-gradient(
@@ -52,6 +52,48 @@ section {
     rgba(26, 188, 254, 0.23),
     rgba(9, 26, 47, 0.1)
   );
+  box-shadow: 0 0 1em 0.5em rgba(0, 0, 0, 0.2);
+  overflow: hidden;
+}
+
+.landing-card:nth-child(1) {
+  top: 20px;
+}
+
+.landing-card:nth-child(2) {
+  top: 40px;
+}
+
+.landing-card:nth-child(3) {
+  top: 60px;
+}
+
+.landing-card:nth-child(4) {
+  top: 80px;
+}
+
+.landing-card:nth-child(5) {
+  top: 100px;
+}
+
+.landing-card:nth-child(6) {
+  top: 120px;
+}
+
+.landing-card:nth-child(7) {
+  top: 140px;
+}
+
+.landing-card:nth-child(8) {
+  top: 160px;
+}
+
+.landing-card:nth-child(9) {
+  top: 180px;
+}
+
+.landing-card:nth-child(10) {
+  top: 200px;
 }
 
 h1,

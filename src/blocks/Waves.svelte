@@ -18,7 +18,7 @@
 <section id="{item.id}" class="edit landing-card" style="margin-top: 10px">
 <div class="card-body">
 <div class="row h-100">
-	<div class="col-md-6 d-flex align-items-center">
+	<div class="col-md-6">
 		
 		<div class="card-text">
 		<h2>{item.title}</h2>
@@ -43,12 +43,12 @@
 	.card-body{
 		width: 100%;
 		height: 100%;
-		background-image: url(graphics/stats.png);
+		background-image: url(graphics/waves.png);
 		background-size: cover;
 		background-repeat: no-repeat;
 	}
 	
 	.card-text{
-		padding-left: 40px;
+		padding: 40px;
 	}
 </style>

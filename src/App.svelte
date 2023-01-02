@@ -11,6 +11,7 @@ let index;
   
   import Intro from "./blocks/Intro.svelte"
   import TwoCol from "./blocks/TwoCol.svelte"
+  import Waves from "./blocks/Waves.svelte"
   
   let layouts = [{
       "component": "Intro",
@@ -22,6 +23,14 @@ let index;
     },{
     "component": "TwoCol",
     "name": "Two Columns",
+    "fields": {
+      "title":"txt",
+      "body": "rte",
+      "image": "img"
+    }
+  },{
+    "component": "Waves",
+    "name": "Waves",
     "fields": {
       "title":"txt",
       "body": "rte",
@@ -46,7 +55,7 @@ let index;
   },
   {
     "id": "item-3",
-    "component": "Intro",
+    "component": "Waves",
     "title": "Lorem ipsum dolor",
     "subtitle": "",
     "body": "<p>Lorem ipsum dolor site lila</p>",
@@ -54,7 +63,7 @@ let index;
   },
   {
     "id": "item-4",
-    "component": "TwoCol",
+    "component": "Intro",
     "title": "Lorem ipsum dolor",
     "subtitle": "",
     "body": "<p>Lorem ipsum dolor site lila</p>",
@@ -88,6 +97,10 @@ let index;
   
   {#if item.component == 'TwoCol'}
   <TwoCol bind:item={item} />
+  {/if}
+  
+  {#if item.component == 'Waves'}
+  <Waves bind:item={item} />
   {/if}
 
 
