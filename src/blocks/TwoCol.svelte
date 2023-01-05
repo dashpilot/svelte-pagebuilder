@@ -39,7 +39,7 @@
 	.card-body{
 		width: 100%;
 		height: 100%;
-		background-image: url(graphics/stats.png);
+		background-image: url(/graphics/stats.png);
 		background-size: cover;
 		background-repeat: no-repeat;
 	}
