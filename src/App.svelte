@@ -29,7 +29,13 @@
     "id": "item-2",
     "component": "Post",
     "title": "Lorem Ipsum",
-    "body": "<p>Lorem ipsum dolor site amet.</p>"
+    "body": "<p>Vivamus in nisi commodo, auctor magna vel, viverra turpis. Quisque dapibus risus nec justo euismod, id fringilla dui lobortis. Mauris vitae semper arcu. Ut ac lorem felis.</p>"
+  },
+  {
+    "id": "item-3",
+    "component": "News",
+    "title": "Lorem Lila",
+    "body": "<p>Vivamus ac volutpat justo. Quisque pharetra lectus vel neque iaculis, ac rhoncus leo pretium. In fringilla a purus eget tempor. Interdum et malesuada fames ac ante ipsum primis in faucibus.</p>"
   }]
   }
   

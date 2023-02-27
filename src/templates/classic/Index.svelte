@@ -11,6 +11,7 @@
 	  
   import Header from "./Header.svelte"
   import Post from "./Post.svelte"
+  import News from "./News.svelte"
 
   let components = [];
 
@@ -46,6 +47,9 @@ onMount(async () => {
 	{/if}
 	{#if item.component == 'Post'}
 	<Post bind:item bind:components />
+	{/if}
+	{#if item.component == 'News'}
+	<News bind:item bind:components />
 	{/if}
   
   {/each}
