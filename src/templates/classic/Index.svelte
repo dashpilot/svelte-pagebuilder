@@ -12,30 +12,15 @@
   import Header from "./Header.svelte"
   import Post from "./Post.svelte"
   import News from "./News.svelte"
+  import Features from "./Features.svelte"
 
   let components = [];
-
-  
-
-
+  let item = false;
 
 onMount(async () => {
 	console.log(components)
 });
-  
-  /*
-  let layouts = [{
-		"component": "Header",
-		"name": "Header",
-		"fields": {
-		  "title":"txt",
-		  "subtitle": "txt",
-		  "icon": "txt",
-		  "button_text": "txt",
-		  "body": "rte"
-	  }
-	}];
-	*/
+
   </script>
 
   
@@ -51,10 +36,18 @@ onMount(async () => {
 	{#if item.component == 'News'}
 	<News bind:item bind:components />
 	{/if}
+	{#if item.component == 'Features'}
+	<Features bind:item bind:components />
+	{/if}
+	
   
   {/each}
   
-
-  
-  <Editor bind:data bind:components />
+<!-- We need to include them at least once -->
+<Header bind:item bind:components />	
+<Post bind:item bind:components /> 
+<News bind:item bind:components />
+<Features bind:item bind:components />
+	
+<Editor bind:data bind:components />
 	  

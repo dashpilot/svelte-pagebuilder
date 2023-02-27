@@ -14,11 +14,13 @@ components.push({
 	  })
 </script>
 
-<section id="{item.id}" class="edit text-center">
-	<div class="container">
+{#if item}
+<section>
+	<div class="container edit text-center" id="{item.id}">
   	<i class="{item.icon} fa-big"></i>
   	<h1>{item.title}</h1>
   	<p>{item.subtitle}</p>
   	<a href="{item.button_link}" class="btn btn-outline-dark">{item.button_text}</a>
 	</div>
 </section>
+{/if}

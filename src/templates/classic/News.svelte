@@ -6,13 +6,15 @@
 			 "name": "News",
 			 "fields": {
 			   "title":"txt",
-			   "body": "rte"
+			   "body": "rte",
+			   "image": "img"
 		   }
 	   })
  </script> 
  
- <section id="{item.id}" class="edit">
-  <div class="container">
+ {#if item}
+ <section>
+  <div class="container edit" id="{item.id}">
 	<div class="row">
 	<div class="col-md-6">
 	  <h2>{item.title}</h2>
@@ -20,7 +22,7 @@
 	</div>
 	<div class="col-md-6">
 		{#if item.image}
-			<img :src="item.image" class="img-fluid" />
+			<img src="{item.image}" class="img-fluid" />
 		
 		{:else if item.youtube}
 		<div class="responsive-container">
@@ -40,3 +42,4 @@
 	</div>
   </div>
   </section>
+  {/if}
