@@ -8,16 +8,16 @@
 	import Image from "./widgets/Image.svelte"
 	
 	export let data;
-	export let layouts;
-	export let user;
+	export let components;
+	//export let user;
 	
-	export let showAccount;
+	//export let showAccount;
 	
 	let editing = false;
 	let adding = false;
 	
 	let curIndex = false;
-	let curLayout = false;
+	let curComponent = false;
 	
 	let showPublish = false;
 	
@@ -51,9 +51,9 @@
 				
 				let mycomponent = data.items[curIndex].component;
 				
-				curLayout = layouts.filter(x => x.component == mycomponent)[0]
+				curComponent = components.filter(x => x.component == mycomponent)[0]
 				
-				console.log(curLayout)
+				console.log(curComponent)
 				
 				adding = false;
 				
@@ -70,22 +70,22 @@
 		editing = false;
 	}
 	
-	function add(layout){
+	function add(component){
 		
 		
 		let newItem = {};
 		
 		newItem.id = "item-"+Date.now();
-		newItem.component = layout.component;
-		Object.keys(layout.fields).forEach((key)=>{
+		newItem.component = component.component;
+		Object.keys(component.fields).forEach((key)=>{
 			
-			if(layout.fields[key]=='txt'){
+			if(component.fields[key]=='txt'){
 				newItem[key] = "Lorem Ipsum"
 			}
-			if(layout.fields[key]=='rte'){
+			if(component.fields[key]=='rte'){
 				newItem[key] = "Lorem ipsum dolor site amet"
 			}
-			if(layout.fields[key]=='img'){
+			if(component.fields[key]=='img'){
 				newItem[key] = "img/placeholder.jpg"
 			}
 			
@@ -132,16 +132,16 @@
 
 <div class="clear"></div>
 
-  {#each Object.keys(curLayout.fields) as mykey}
+  {#each Object.keys(curComponent.fields) as mykey}
 
 
-  {#if curLayout.fields[mykey] == 'txt'}
+  {#if curComponent.fields[mykey] == 'txt'}
   <div class="label">{mykey}</div>
 		<input type="text" class="form-control" bind:value={data.items[curIndex][mykey]} />
 	{/if}
   
   
-  {#if curLayout.fields[mykey] == 'rte'}
+  {#if curComponent.fields[mykey] == 'rte'}
   	{#key data.items[curIndex].id}
 	  
 	  <div class="label">{mykey}</div>
@@ -150,7 +150,7 @@
   {/if}
 
   
-  {#if curLayout.fields[mykey] == 'img'}
+  {#if curComponent.fields[mykey] == 'img'}
   	<div class="label">{mykey}</div>
   	<Image bind:item={data.items[curIndex]} bind:key={mykey} />
   {/if}
@@ -176,11 +176,11 @@
 
 <div class="clear"></div>
 
-{#each layouts as layout}
+{#each components as component}
 
-<div class="box" on:click={() => add(layout)}>
+<div class="box" on:click={() => add(component)}>
 	
-	{layout.name}
+	{component.name}
 	
 </div>
 
@@ -240,6 +240,8 @@
 	.editor-start{
 		right: auto;
 		left: 0;
+		border-right: 1px solid #ced4da;
+		border-left: 0;
 	}
 	
 	.label{

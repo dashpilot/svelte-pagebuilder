@@ -7,67 +7,29 @@
   let user = false; 
   let showAccount = false;
   
-let index;
+  import CardsTemplate from "./templates/cards/Index.svelte"
+  import ClassicTemplate from "./templates/classic/Index.svelte"
   
-  import Intro from "./blocks/Intro.svelte"
-  import TwoCol from "./blocks/TwoCol.svelte"
-  import Waves from "./blocks/Waves.svelte"
+  let index;
   
-  let layouts = [{
-      "component": "Intro",
-      "name": "Intro",
-      "fields": {
-        "title":"txt",
-        "body": "rte"
-      }
-    },{
-    "component": "TwoCol",
-    "name": "Two Columns",
-    "fields": {
-      "title":"txt",
-      "body": "rte",
-      "image": "img"
-    }
-  },{
-    "component": "Waves",
-    "name": "Waves",
-    "fields": {
-      "title":"txt",
-      "body": "rte",
-      "image": "img"
-    }
-  }];
-  
+
   let data = {
+    "config": {
+      "template": "classic",
+    },
     "items": [{
       "id": "item-1",
-      "component": "Intro",
-      "title": "SliderStack",
+      "component": "Header",
+      "title": "Tijpo",
+      "subtitle": "That's not a typo.",
+      "button_text": "Contact Us",
       "body": "<p>Lorem ipsum dolor site amet</p>"
     },
   {
     "id": "item-2",
-    "component": "TwoCol",
-    "title": "Lorem ipsum dolor",
-    "subtitle": "",
-    "body": "<p>Lorem ipsum dolor site lila</p>",
-    "image": ""
-  },
-  {
-    "id": "item-3",
-    "component": "Waves",
-    "title": "Lorem ipsum dolor",
-    "subtitle": "",
-    "body": "<p>Lorem ipsum dolor site lila</p>",
-    "image": ""
-  },
-  {
-    "id": "item-4",
-    "component": "Intro",
-    "title": "Lorem ipsum dolor",
-    "subtitle": "",
-    "body": "<p>Lorem ipsum dolor site lila</p>",
-    "image": ""
+    "component": "Post",
+    "title": "Lorem Ipsum",
+    "body": "<p>Lorem ipsum dolor site amet.</p>"
   }]
   }
   
@@ -75,51 +37,26 @@ let index;
    
   onMount(async () => {
    
-      // 'layouts' contains the names and fields of the registered components
-      console.log(layouts)
-      
       
     
   })
 
 </script>
 
-<User bind:user bind:showAccount />
+{#if data.config.template=='cards'}
+<CardsTemplate bind:data />
+  {:else if data.config.template=='classic'}
+  <ClassicTemplate bind:data />
 
-{#if user}
-<div class="wrapper mt-5">
-
-{#each data.items as item, index}
-
-
-
-  {#if item.component == 'Intro'}
-  <Intro bind:item={item} />
-  {/if}
-  
-  {#if item.component == 'TwoCol'}
-  <TwoCol bind:item={item} />
-  {/if}
-  
-  {#if item.component == 'Waves'}
-  <Waves bind:item={item} />
-  {/if}
-
-
-{/each}
-
-</div>
-
-
-<Editor bind:data bind:layouts bind:user bind:showAccount />
-  
+{:else}
+Template not found
 {/if}
 
 
-<style>
-  
- 
-  
-  
-</style>
+<!--
+<User bind:user bind:showAccount />
+-->
+
+
+
 
