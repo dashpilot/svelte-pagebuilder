@@ -1,6 +1,7 @@
 <script>
 export let item;
 export let components;
+if(!item){
 components.push({
 			"component": "Header",
 			"name": "Header",
@@ -12,6 +13,7 @@ components.push({
 			  "body": "rte"
 		  }
 	  })
+}
 </script>
 
 {#if item}

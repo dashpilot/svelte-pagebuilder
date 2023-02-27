@@ -1,6 +1,7 @@
  <script>
  export let item;
  export let components;
+ if(!item){
  components.push({
 			 "component": "News",
 			 "name": "News",
@@ -10,6 +11,7 @@
 			   "image": "img"
 		   }
 	   })
+}
  </script> 
  
  {#if item}

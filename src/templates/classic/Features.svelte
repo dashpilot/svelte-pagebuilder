@@ -1,6 +1,7 @@
  <script>
  export let item;
  export let components;
+if(!item){
  components.push({
 			 "component": "Features",
 			 "name": "Features",
@@ -11,6 +12,7 @@
 			   "body_2": "rte"   
 		   }
 	   })
+ }
  </script>
  
 {#if item}

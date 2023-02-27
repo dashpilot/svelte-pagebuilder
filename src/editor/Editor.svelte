@@ -11,7 +11,7 @@
 	export let components;
 	
 	// important: remove duplicate components from component array
-	components = components.filter((v,i,a)=>a.findIndex(v2=>['component','name'].every(k=>v2[k] ===v[k]))===i)
+	// components = components.filter((v,i,a)=>a.findIndex(v2=>['component','name'].every(k=>v2[k] ===v[k]))===i)
 	
 	//export let user;
 	//export let showAccount;
