@@ -88,11 +88,14 @@
 			if(component.fields[key]=='txt'){
 				newItem[key] = "Lorem Ipsum"
 			}
-			if(component.fields[key]=='rte'){
+			if(component.fields[key]=='rte' || component.fields[key]=='txta'){
 				newItem[key] = "Lorem ipsum dolor site amet"
 			}
 			if(component.fields[key]=='img'){
 				newItem[key] = "img/placeholder.jpg"
+			}
+			if(component.fields[key]=='icn'){
+				newItem[key] = "fas fa-bolt"
 			}
 			
 		})
@@ -139,10 +142,12 @@
 <div class="clear"></div>
 
   {#each Object.keys(curComponent.fields) as mykey}
+  
+  <div class="label">{mykey.replace('_', ' ')}</div>
 
 
   {#if curComponent.fields[mykey] == 'txt'}
-  <div class="label">{mykey}</div>
+
 		<input type="text" class="form-control" bind:value={data.items[curIndex][mykey]} />
 	{/if}
   
@@ -150,19 +155,27 @@
   {#if curComponent.fields[mykey] == 'rte'}
   	{#key data.items[curIndex].id}
 	  
-	  <div class="label">{mykey}</div>
+	  
 	  <TipTap bind:item={data.items[curIndex]} bind:key={mykey} />
     {/key}
   {/if}
+  
+  {#if curComponent.fields[mykey] == 'txta'}
+	
+		
+		
+		<textarea class="form-control" bind:value={data.items[curIndex][mykey]}></textarea>
+	 
+	{/if}
 
   
   {#if curComponent.fields[mykey] == 'img'}
-  	<div class="label">{mykey}</div>
+  	
   	<Image bind:item={data.items[curIndex]} bind:key={mykey} />
   {/if}
   
   {#if curComponent.fields[mykey] == 'icn'}
-  <div class="label">{mykey}</div>
+ 
 	<IconPicker bind:item={data.items[curIndex]} bind:key={mykey} />
   {/if}
   
@@ -246,6 +259,11 @@
 		-webkit-text-size-adjust: 100%;
 	}
 	
+	.content-editor .btn-outline-secondary {
+	  border: 1px solid #dddddd;
+	}
+
+	
 	.editor-start{
 		right: auto;
 		left: 0;
@@ -262,6 +280,11 @@
 	
 	.form-control{
 		margin-bottom: 15px;
+	}
+	
+	textarea{
+		resize: none;
+		height: 100px;
 	}
 	
 	.clear{

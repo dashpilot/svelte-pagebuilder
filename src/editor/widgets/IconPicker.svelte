@@ -10,11 +10,9 @@
 	onMount(async function() {
 		const response = await fetch('icons.json');
 		icons = await response.json();
-		console.log(icons)
 	})
 	
 	function selectIcon(icon){
-		console.log(icon)
 		item[key] = icon;
 		showPicker = false;
 	}
@@ -47,5 +45,20 @@
 	.icon:hover{
 		color: black;
 		cursor:pointer;
+	}
+	
+	.modal-screen {
+	  max-width: 800px;
+	  height: 500px;
+	  margin: 0 auto;
+	  margin-top: 100px;
+	  background-color: white;
+	  border-radius: 12px;
+	  padding: 15px;
+	  overflow-y: auto;
+	}
+	
+	.modal-screen h4 {
+	  color: black;
 	}
 </style>

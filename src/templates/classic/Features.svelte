@@ -7,9 +7,9 @@ if(!item){
 			 "name": "Features",
 			 "fields": {
 			   "title":"txt",
-			   "body": "rte",
+			   "body": "txta",
 			   "title_2":"txt",
-			   "body_2": "rte"   
+			   "body_2": "txta"   
 		   }
 	   })
  }
@@ -21,11 +21,11 @@ if(!item){
 	<div class="row">
 	<div class="col-md-6 text-center">
 	  <h3>{item.title}</h3>
-	  {@html item.body}
+	  {item.body}
 	</div>
 	<div class="col-md-6 text-center">
 	  <h3>{item.title_2}</h3>
-	  {@html item.body_2}
+	  {item.body_2}
 	</div>
 	</div>
   </div>
