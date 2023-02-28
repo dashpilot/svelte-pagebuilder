@@ -221,7 +221,9 @@
 
 <div class="dock">
 	
+<!--
 <img src="img/account.png" class="grow" on:click={() => showAccount = true} />
+-->
 
 <img src="img/plus.png" class="grow" on:click={showAdd} />
 
@@ -257,10 +259,6 @@
 		-webkit-font-smoothing: antialiased;
 		-moz-osx-font-smoothing: grayscale;
 		-webkit-text-size-adjust: 100%;
-	}
-	
-	.content-editor .btn-outline-secondary {
-	  border: 1px solid #dddddd;
 	}
 
 	

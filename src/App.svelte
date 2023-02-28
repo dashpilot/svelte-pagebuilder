@@ -2,8 +2,10 @@
   import { onMount } from 'svelte';
   import Editor from "./editor/Editor.svelte"
   
+  /*
   import User from "./editor/User.svelte"
   import { auth, db } from './editor/firebase';
+  */
   let user = false; 
   let showAccount = false;
   
