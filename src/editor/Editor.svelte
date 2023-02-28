@@ -31,7 +31,7 @@
 			
 			// get the components from the SPA
 			components = window.components;
-		}, 100)
+		}, 250)
 		
 	});
 	

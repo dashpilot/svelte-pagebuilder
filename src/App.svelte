@@ -12,6 +12,7 @@
   import News from "./components/News.svelte"
   import Features from "./components/Features.svelte"
   
+  
   import Editor from "./editor/Editor.svelte"
   
   let data;
