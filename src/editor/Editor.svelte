@@ -8,11 +8,8 @@
 	import Image from "./widgets/Image.svelte"
 	import IconPicker from "./widgets/IconPicker.svelte"
 	
-	export let data;
+	let data;
 	export let components;
-	
-	// important: remove duplicate components from component array
-	// components = components.filter((v,i,a)=>a.findIndex(v2=>['component','name'].every(k=>v2[k] ===v[k]))===i)
 	
 	//export let user;
 	//export let showAccount;
@@ -25,14 +22,15 @@
 	
 	let showPublish = false;
 	
+	// send the 
+	$: data && window.relay(data);
+	
 	onMount(async () => {
-		
 	
+		const response = await fetch(cfg.dataPath);
+		data = await response.json();
+		
 		makeEditable()
-		
-		
-	
-		
 	});
 	
 	function makeEditable(){

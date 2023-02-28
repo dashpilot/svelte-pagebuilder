@@ -23,10 +23,9 @@ onMount(async () => {
 
   </script>
 
-  
+
   {#each data.items as item, i}
 
-  
 	{#if item.component == 'Header'}
 	<Header bind:item bind:components />		
 	{/if}
@@ -40,8 +39,9 @@ onMount(async () => {
 	<Features bind:item bind:components />
 	{/if}
 	
-  
+
   {/each}
+
   
 <!-- We need to include them at least once -->
 <Header bind:item bind:components />	
@@ -49,5 +49,5 @@ onMount(async () => {
 <News bind:item bind:components />
 <Features bind:item bind:components />
 	
-<Editor bind:data bind:components />
+<Editor bind:components />
 	  
