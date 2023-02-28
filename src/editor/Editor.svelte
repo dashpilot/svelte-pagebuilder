@@ -3,17 +3,13 @@
 	import { fade, fly } from 'svelte/transition';
 	import Publish from "./Publish.svelte"
 	
-
 	import TipTap from "./widgets/TipTap.svelte"
 	import Image from "./widgets/Image.svelte"
 	import IconPicker from "./widgets/IconPicker.svelte"
 	
 	let data;
-	export let components;
-	
-	//export let user;
-	//export let showAccount;
-	
+	let components;
+
 	let editing = false;
 	let adding = false;
 	
@@ -30,7 +26,13 @@
 		const response = await fetch(cfg.dataPath);
 		data = await response.json();
 		
-		makeEditable()
+		setTimeout(()=>{
+			makeEditable()
+			
+			// get the components from the SPA
+			components = window.components;
+		}, 100)
+		
 	});
 	
 	function makeEditable(){

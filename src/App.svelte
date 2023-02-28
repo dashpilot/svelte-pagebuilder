@@ -1,24 +1,31 @@
+
+<svelte:head>
+<link href="templates/classic/style.css" rel="stylesheet" />
+</svelte:head>
+  
 <script>
   import { onMount } from 'svelte';
 
+    
+  import Header from "./components/Header.svelte"
+  import Post from "./components/Post.svelte"
+  import News from "./components/News.svelte"
+  import Features from "./components/Features.svelte"
   
-  /*
-  import User from "./editor/User.svelte"
-  import { auth, db } from './editor/firebase';
-  */
-  let user = false; 
-  let showAccount = false;
+  import Editor from "./editor/Editor.svelte"
   
-  import CardsTemplate from "./templates/cards/Index.svelte"
-  import ClassicTemplate from "./templates/classic/Index.svelte"
-  
-  let index;
   let data;
-  
+  let components = [];
+  let item = false;
+  let index;
+  let user = false;
 
   onMount(async function() {
     const response = await fetch(cfg.dataPath);
     data = await response.json();
+    
+    console.log(components)
+    window.components = components;
   })
   
   // this function receives updates from the cms
@@ -29,22 +36,34 @@
 </script>
 
 {#if data}
-{#if data.config.template=='cards'}
-<CardsTemplate bind:data />
-  {:else if data.config.template=='classic'}
-  <ClassicTemplate bind:data />
+  {#each data.items as item, i}
 
-{:else}
-Template not found
-{/if}
+  {#if item.component == 'Header'}
+  <Header bind:item bind:components />		
+  {/if}
+  {#if item.component == 'Post'}
+  <Post bind:item bind:components />
+  {/if}
+  {#if item.component == 'News'}
+  <News bind:item bind:components />
+  {/if}
+  {#if item.component == 'Features'}
+  <Features bind:item bind:components />
+  {/if}
+  
 
-{/if}
+  {/each}
+{/if}  
 
-
-<!--
-<User bind:user bind:showAccount />
--->
-
+  
+<!-- We need to include them at least once -->
+<Header bind:item bind:components />	
+<Post bind:item bind:components /> 
+<News bind:item bind:components />
+<Features bind:item bind:components />
+  
+<Editor />
+    
 
 
 
