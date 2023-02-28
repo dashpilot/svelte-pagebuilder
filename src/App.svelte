@@ -23,14 +23,17 @@
   
   onMount(async () => {
   
+    /*
     const response = await fetch(cfg.dataPath);
     data = await response.json();
+    */
     
     setTimeout(()=>{
       makeEditable()
       
       // get the components from the SPA
       components = window.components;
+      data = window.data;
     }, 250)
     
   });
