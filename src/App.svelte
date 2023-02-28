@@ -13,12 +13,9 @@
   let components;
 
   let action = false;
- 
-  
   let curIndex = false;
   let curComponent = false;
-  
-  let showPublish = false;
+
   
   // send the 
   $: data && window.relay(data);
@@ -284,6 +281,7 @@
     left: 0;
     border-right: 1px solid #ced4da;
     border-left: 0;
+    width: 300px;
   }
   
  

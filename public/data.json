@@ -2,6 +2,11 @@
   "config": {
     "template": "classic"
   },
+  "design": {
+    "color1": "#f7fafc",
+    "color2": "#000000",
+    "font": "Rubik"
+  },
   "items": [
     {
       "id": "item-1",

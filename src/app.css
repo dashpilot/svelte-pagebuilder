@@ -11,10 +11,6 @@ body {
   -webkit-text-size-adjust: 100%;
 }
 
-:root {
-  --picker-width: "100px";
-}
-
 /* --- edits --- */
 
 .edit {
@@ -86,4 +82,9 @@ body {
 
 .picker {
   margin-left: -3px;
+}
+
+.isPopup.isOpen {
+  margin-left: 3px;
+  margin-top: -20px;
 }
