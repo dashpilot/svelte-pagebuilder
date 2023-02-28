@@ -2,6 +2,7 @@
   import { onMount } from 'svelte';
   import { fade, fly } from 'svelte/transition';
   
+  
   import Design from "./lib/Design.svelte"
   import Publish from "./lib/Publish.svelte"
   
@@ -120,6 +121,23 @@
     action = false
   }
   
+  function deleteItem(id) {
+    let r = confirm('Are you sure you want to delete this item?');
+    if (r == true) {
+      data.items.splice(data.items.findIndex(x => x.id === id), 1);
+      data = data;
+      
+      setTimeout(()=>{
+        makeEditable()
+      }, 50)
+      
+      action = false;
+      
+      
+    
+    }
+  }
+  
   function moveItem(id) {
     var from = data.items.findIndex(x => x.id == id);
     var to = from + 1;
@@ -188,7 +206,14 @@
   {/each}
   
   <div class="label">Options</div>
+  
+  <div class="btn-group w-100">
   <button class="btn btn-outline-secondary" on:click={()=>moveItem(data.items[curIndex].id)}><i class="fas fa-arrow-down"></i> &nbsp;Move Down</button>
+  
+  <button class="btn btn-outline-secondary" on:click={()=>deleteItem(data.items[curIndex].id)}><i class="fas fa-trash"></i> &nbsp;Delete</button>
+ 
+</div>
+  
   <div class="clear mb-4"></div>
   
   <button class="btn btn-dark" on:click={closeEditor}>Save</button>
