@@ -2,23 +2,23 @@
 	import ColorPicker from 'svelte-awesome-color-picker';// or hsv or hex
 
 	export let data;
-	let font = 'Rubik';
-	let hex = '#f7fafc'; 
-	let color;
+	let font = data.design.font;
+	let hex = data.design.color1; 
+
 	
 	function setColor(e) {
 	
 	  let myhex = e.detail.hex;
 		
-	  color = myhex;
+	
 	  let myhex2 = colorContrast(myhex);
 	  
 	  let root = document.documentElement;
 	  root.style.setProperty('--bg-color', myhex);
 	  root.style.setProperty('--fg-color', myhex2);
 	  
-	  data.design.font1 = myhex;
-	  data.design.font2 = myhex2;
+	  data.design.color1 = myhex;
+	  data.design.color2 = myhex2;
 	  
 	 /*
 	  localStorage.setItem('bg-color', hex);
@@ -78,7 +78,7 @@
 </script>
 
 
-
+{data.design.font}
 
 <div class="label">Font</div>
 <div class="list-group">

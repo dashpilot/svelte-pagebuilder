@@ -17,7 +17,7 @@
   let curComponent = false;
 
   
-  // send the 
+  // send the data
   $: data && window.relay(data);
   
   onMount(async () => {
