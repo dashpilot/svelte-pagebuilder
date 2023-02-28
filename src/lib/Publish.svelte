@@ -1,5 +1,5 @@
 <script>
-	import { auth, googleProvider} from './firebase';
+	//import { auth, googleProvider} from './firebase';
 	export let showPublish;
 	export let data;
 	
