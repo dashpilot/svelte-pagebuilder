@@ -120,6 +120,15 @@
     action = false
   }
   
+  function moveItem(id) {
+    var from = data.items.findIndex(x => x.id == id);
+    var to = from + 1;
+    console.log(from);
+    console.log(to);
+    var f = data.items.splice(from, 1)[0];
+    data.items.splice(to, 0, f);
+    data = data;
+  }
   
 </script> 
 
@@ -177,6 +186,10 @@
   {/if}
   
   {/each}
+  
+  <div class="label">Options</div>
+  <button class="btn btn-outline-secondary" on:click={()=>moveItem(data.items[curIndex].id)}><i class="fas fa-arrow-down"></i> &nbsp;Move Down</button>
+  <div class="clear mb-4"></div>
   
   <button class="btn btn-dark" on:click={closeEditor}>Save</button>
   
@@ -273,6 +286,9 @@
     -webkit-font-smoothing: antialiased;
     -moz-osx-font-smoothing: grayscale;
     -webkit-text-size-adjust: 100%;
+    
+    overflow: hidden;
+    overflow-y: auto;
   }
 
   
