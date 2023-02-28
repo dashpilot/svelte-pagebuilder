@@ -1,6 +1,8 @@
 <script>
   import { onMount } from 'svelte';
   import { fade, fly } from 'svelte/transition';
+  
+  import Design from "./lib/Design.svelte"
   import Publish from "./lib/Publish.svelte"
   
   import TipTap from "./widgets/TipTap.svelte"
@@ -10,8 +12,8 @@
   let data;
   let components;
 
-  let editing = false;
-  let adding = false;
+  let action = false;
+ 
   
   let curIndex = false;
   let curComponent = false;
@@ -56,7 +58,7 @@
         let index = data.items.findIndex(x => x.id == id);
         
         curIndex = index;
-        editing = true;
+       
         
         let mycomponent = data.items[curIndex].component;
         
@@ -64,7 +66,7 @@
         
         console.log(curComponent)
         
-        adding = false;
+        action = 'edit'
         
         }
     
@@ -73,12 +75,7 @@
     })
   }
   
-  
-  function showAdd(){
-    adding = true;
-    editing = false;
-  }
-  
+
   function add(component){
     
     
@@ -109,7 +106,7 @@
     
     data = data;
     
-    adding = false;
+    action = false;
     
     setTimeout(()=>{
       makeEditable()
@@ -123,7 +120,7 @@
         myel.classList.remove('editing');
       })
       
-    editing = false
+    action = false
   }
   
   
@@ -134,7 +131,7 @@
   
 
  
-{#if editing}
+{#if action=='edit'}
 
 <div class="content-editor" in:fly="{{ x: 350, duration: 500 }}" out:fly="{{ x: 350, duration: 150 }}">
   
@@ -191,13 +188,13 @@
 {/if}
 
 
-{#if adding}
+{#if action=='add'}
 
 <div class="content-editor editor-start" in:fly="{{ x: -350, duration: 500 }}" out:fly="{{ x: -350, duration: 150 }}">
   
   <h5 class="float-start">Add Content</h5>
   
- <button type="button" class="btn-close float-end mb-3" aria-label="Close" on:click={() => adding = false}></button>
+ <button type="button" class="btn-close float-end mb-3" aria-label="Close" on:click={() => action = false}></button>
 
 <div class="clear"></div>
 
@@ -215,9 +212,24 @@
 {/if}
 
 
+{#if action=='design'}
+  <div class="content-editor editor-start" in:fly="{{ x: -350, duration: 500 }}" out:fly="{{ x: -350, duration: 150 }}">
+    
+    <h5 class="float-start">Design</h5>
+    
+   <button type="button" class="btn-close float-end mb-3" aria-label="Close" on:click={() => action = false}></button>
+  
+  <div class="clear"></div>
+  
+  <Design bind:data />
+    
+  </div>  
+{/if}
 
-{#if showPublish}
-<Publish bind:showPublish bind:data />
+
+
+{#if action=='publish'}
+<Publish bind:action bind:data />
 {/if}
 
 
@@ -228,9 +240,11 @@
 <img src="img/account.png" class="grow" on:click={() => showAccount = true} />
 -->
 
-<img src="img/plus.png" class="grow" on:click={showAdd} />
+<img src="img/plus.png" class="grow" on:click={()=>action='add'} />
 
-<img src="img/publish.png" class="grow" on:click={() => showPublish = true} />
+<img src="img/settings.png" class="grow" on:click={()=>action='design'} />
+
+<img src="img/publish.png" class="grow" on:click={()=>action='publish'} />
 
 </div>
 
@@ -272,12 +286,7 @@
     border-left: 0;
   }
   
-  .label{
-    text-transform: uppercase;
-    letter-spacing: 0.03em;
-    font-size: 14px;
-    margin-bottom: 3px;
-  }
+ 
   
   .form-control{
     margin-bottom: 15px;

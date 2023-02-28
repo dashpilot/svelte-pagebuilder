@@ -1,6 +1,6 @@
 <script>
 	//import { auth, googleProvider} from './firebase';
-	export let showPublish;
+	export let action;
 	export let data;
 	
 	let loading = false;
@@ -88,7 +88,7 @@
 		<div class="modal-content">
 		  <div class="modal-header pt-4">
 			<h5 class="modal-title">Publish your page</h5>
-			<button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close" on:click="{() => showPublish = false}"></button>
+			<button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close" on:click="{() => action = false}"></button>
 		  </div>
 		  <div class="modal-body">
 			  
