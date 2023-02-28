@@ -20,8 +20,9 @@
     "items": [{
       "id": "item-1",
       "component": "Header",
-      "title": "Tijpo",
-      "subtitle": "That's not a typo.",
+      "title": "Svelte Pagebuilder",
+      "subtitle": "Lorem ipsum dolor site amet.",
+      "icon": "fas fa-bolt",
       "button_text": "Contact Us",
       "body": "<p>Lorem ipsum dolor site amet</p>"
     },

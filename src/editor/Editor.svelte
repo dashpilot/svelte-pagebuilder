@@ -6,6 +6,7 @@
 
 	import TipTap from "./widgets/TipTap.svelte"
 	import Image from "./widgets/Image.svelte"
+	import IconPicker from "./widgets/IconPicker.svelte"
 	
 	export let data;
 	export let components;
@@ -160,7 +161,10 @@
   	<Image bind:item={data.items[curIndex]} bind:key={mykey} />
   {/if}
   
-
+  {#if curComponent.fields[mykey] == 'icn'}
+  <div class="label">{mykey}</div>
+	<IconPicker bind:item={data.items[curIndex]} bind:key={mykey} />
+  {/if}
   
   {/each}
 	

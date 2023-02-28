@@ -8,7 +8,7 @@ components.push({
 			"fields": {
 			  "title":"txt",
 			  "subtitle": "txt",
-			  "icon": "txt",
+			  "icon": "icn",
 			  "button_text": "txt",
 			  "body": "rte"
 		  }
