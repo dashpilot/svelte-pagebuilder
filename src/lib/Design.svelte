@@ -78,8 +78,6 @@
 </script>
 
 
-{data.design.font}
-
 <div class="label">Font</div>
 <div class="list-group">
 <a class="list-group-item" on:click={()=>setFont('Rubik')}>{#if font=='Rubik'}<i class="fas fa-check mr-2"></i>&nbsp;{/if} Default</a>
