@@ -312,9 +312,11 @@
 <img src="img/account.png" class="grow" on:click={() => showAccount = true} />
 -->
 
-<img src="img/plus.png" class="grow" on:click={()=>action='add'} />
+
 
 <img src="img/settings.png" class="grow" on:click={()=>action='design'} />
+
+<img src="img/plus.png" class="grow" on:click={()=>action='add'} />
 
 <img src="img/publish.png" class="grow" on:click={()=>action='publish'} />
 
