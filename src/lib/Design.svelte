@@ -1,6 +1,9 @@
 <script>
-	import ColorPicker from 'svelte-awesome-color-picker';// or hsv or hex
-
+	import ColorPicker from 'svelte-awesome-color-picker';
+	import SortableCategories from './SortableCategories.svelte';
+	import FontPicker from "./FontPicker.svelte"
+	
+	
 	export let data;
 	let font = data.design.font;
 	let hex = data.design.color1; 
@@ -74,14 +77,38 @@
 		return "#ffffff";
 	  }
 	}
+	
+
+
+/*
+	import { onMount } from 'svelte';
+
+	onMount(async () => {
+		fontPicker = new FontPicker(
+			"AIzaSyAZirjRxHjC-MiqByhoqjRgl1N1YVTxyEA", // Google API key
+			"Open Sans", // Default font
+			{ limit: 30 }, // Additional options
+		);
+	});
+	*/
 
 </script>
 
 <div class="label">Color</div>
-<div class="picker">
-<ColorPicker bind:hex label="&nbsp;" on:input={setColor} />
-</div>
+<ul class="list-group mb-15">
+	<li class="list-group-item">
+		<div class="picker">
+		<ColorPicker bind:hex label="pick color" on:input={setColor} />
+		</div>
+	</li>
+</ul>
 
+<div class="label">Font</div>
+
+<FontPicker />
+
+
+<!--
 
 <div class="label">Font</div>
 <div class="list-group">
@@ -94,27 +121,12 @@
 <a class="list-group-item" on:click={()=>setFont('Georgia')}>{#if font=='Georgia'}<i class="fas fa-check mr-2"></i>&nbsp;{/if} Georgia</a>
 </div>
 
+-->
+
 
 <div class="label mt-3">Pages</div>
 
-<div class="field has-addons">
-  <div class="control">
-	<input class="input" type="text" placeholder="Page title">
-  </div>
-  <div class="control">
-	<a class="button">
-	  Add
-	</a>
-  </div>
-</div>
-
-
-<div class="list-group">
-{#each data.categories as item}
-
-<a class="list-group-item">{item.title}</a>
-{/each}
-</div>
+<SortableCategories bind:data />
 
 
 <style>
