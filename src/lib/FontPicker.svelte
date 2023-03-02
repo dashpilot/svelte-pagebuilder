@@ -1,12 +1,11 @@
 <script>
-import { onMount } from 'svelte';
+import { onMount, onDestroy } from 'svelte';
 export let data;
 
 let font = data.design.font;
 let fontList;
 
 function selectFont(){
-	console.log(font)
 	
 	WebFont.load({
 		google: {
@@ -19,7 +18,7 @@ function selectFont(){
 			console.log("Fonts have been rendered")
 			let root = document.documentElement;
 			root.style.setProperty('--font', font);
-			data.design.font = font;
+			
 			// root.style.setProperty('--spacing', spacing);
 			
 		}
@@ -29,6 +28,11 @@ function selectFont(){
 onMount(async () => {
 	const response = await fetch('google-fonts-selection.json');
 	fontList = await response.json();
+});
+
+onDestroy(async () => {
+	// update the font on close
+	data.design.font = font;
 });
 
 </script>
