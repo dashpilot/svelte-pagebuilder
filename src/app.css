@@ -41,6 +41,10 @@ body {
   background-color: #ffffff;
 }
 
+.editor-wide .ProseMirror {
+  min-height: 250px !important;
+}
+
 .modal {
   color: black;
   margin-top: 100px;

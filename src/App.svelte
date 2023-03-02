@@ -3,6 +3,10 @@
   rel="stylesheet"
   href="https://cdn.jsdelivr.net/npm/bulma@0.9.4/css/bulma.min.css"
 />
+<link
+  rel="stylesheet"
+  href="bulma-switch.css"
+/>
 <script src="https://ajax.googleapis.com/ajax/libs/webfont/1.6.26/webfont.js"></script>
 </svelte:head>
 
@@ -26,6 +30,8 @@
   let curComponent = false;
   
   let curTab = 'content';
+  
+  let wideEditor;
 
   
   // send the data
@@ -143,24 +149,11 @@
       }, 50)
       
       action = false;
-      
-      
-    
+ 
     }
   }
   
-  function moveItem(id) {
-    var from = data.posts.findIndex(x => x.id == id);
-    var to = from + 1;
-    console.log(from);
-    console.log(to);
-    var f = data.posts.splice(from, 1)[0];
-    data.posts.splice(to, 0, f);
-    data = data;
-  }
-  
 </script> 
-
 
 
   
@@ -168,7 +161,7 @@
  
 {#if action=='edit'}
 
-<div class="wdgt content-editor" in:fly="{{ x: 350, duration: 500 }}" out:fly="{{ x: 350, duration: 150 }}">
+<div class="wdgt content-editor" class:editor-wide={wideEditor} in:fly="{{ x: 350, duration: 500 }}" out:fly="{{ x: 350, duration: 150 }}">
   
  <span class="close" on:click={closeEditor}>&times;</span>
   
@@ -235,10 +228,16 @@
   
   {:else if curTab=='options'}
   
-  <div class="label">Move</div>
   
-
-  <button class="button mb-15" on:click={()=>moveItem(data.posts[curIndex].id)}><i class="fas fa-arrow-down"></i> &nbsp;Move Down</button>
+  <div class="label">Expand Editor</div>
+  <div class="field">
+    <label class="switch">
+    <input type="checkbox" bind:checked={wideEditor}>
+    <span class="check is-success"></span>
+    <span class="control-label">expand</span>
+    </label>
+  </div>
+  
   
   
   <div class="label">Delete</div>
@@ -324,7 +323,9 @@
 </div>
 
 
-
+{#if wideEditor && action=='edit'}
+<div class="backdrop"></div>
+{/if}
 
 
 <style>
@@ -340,7 +341,7 @@
     background-color: white;
     border-left: 1px solid #ced4da;
     color: #777;
-    z-index: 999;
+    z-index: 99999999999;
     
     font-family: Inter, Avenir, Helvetica, Arial, sans-serif;
     font-size: 16px;
@@ -354,6 +355,8 @@
     
     overflow: hidden;
     overflow-y: auto;
+    
+    /* transition: all 1s; */
   }
 
   
@@ -362,8 +365,23 @@
     left: 0;
     border-right: 1px solid #ced4da;
     border-left: 0;
-    width: 350px;
+    width: 400px;
   }
+  
+  
+  .editor-wide {
+    width: 800px !important;
+    left: calc(50% - 400px);
+    border-right: 1px solid #ced4da;
+  }
+
+  .editor-wide .wdgt-footer{
+    width: 800px !important;
+   left: calc(50% - 400px);
+   padding-right: 20px;
+   text-align: right;
+  }
+
   
   .input{
     margin-bottom: 15px;
