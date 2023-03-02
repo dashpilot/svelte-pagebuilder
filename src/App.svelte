@@ -365,7 +365,7 @@
     left: 0;
     border-right: 1px solid #ced4da;
     border-left: 0;
-    width: 400px;
+    width: 350px;
   }
   
   
