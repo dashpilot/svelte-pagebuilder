@@ -7,9 +7,6 @@ export let data;
 let items = data.categories;
 let title;
 
-
-
-
 const flipDurationMs = 300;
   
   function handleDndConsider(e) {
@@ -58,6 +55,7 @@ const flipDurationMs = 300;
 </script>
 
 
+<div class="label mt-3">Add Category</div>
 <div class="field has-addons">
   <div class="control">
 	<input class="input" type="text" placeholder="Category title" bind:value={title}>
@@ -70,7 +68,8 @@ const flipDurationMs = 300;
 </div>
 
 
-	
+<div class="label mt-4">Categories</div>	
+
   <ul class="list-group entries-list" use:dndzone="{{items, flipDurationMs}}" on:consider="{handleDndConsider}" on:finalize="{handleDndFinalize}">
 	{#each items as item(item.id)}
 	<li class="list-group-item item-list" animate:flip="{{duration: flipDurationMs}}">

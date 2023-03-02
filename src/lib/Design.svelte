@@ -1,6 +1,7 @@
 <script>
 	import ColorPicker from 'svelte-awesome-color-picker';
 	import SortableCategories from './SortableCategories.svelte';
+	import SortablePosts from './SortablePosts.svelte';
 	import FontPicker from "./FontPicker.svelte"
 	
 	
@@ -9,6 +10,15 @@
 	let hex = data.design.color1; 
 	
 	let curTab = 'design'
+	
+	let cat;
+	if(typeof window.category !== 'undefined'){
+		cat = data.categories.filter(x=>x.slug==window.category)[0]
+	}else{
+		cat = data.categories.filter(x=>x.slug=='home')[0]
+	}
+	
+	let items = data.posts.filter(x=>x.category==cat.id)
 
 	
 	function setColor(e) {
@@ -70,6 +80,7 @@
    <ul>
 	 <li class:is-active={curTab=='design'} on:click={()=>curTab='design'}><a>Design</a></li>
 	 <li  class:is-active={curTab=='categories'} on:click={()=>curTab='categories'}><a>Categories</a></li>
+	 <li  class:is-active={curTab=='posts'} on:click={()=>curTab='posts'}><a>Posts</a></li>
    </ul>
  </div>
  
@@ -91,9 +102,11 @@
 
 {:else if curTab=='categories'}
 
-<div class="label mt-3">Categories</div>
-
 <SortableCategories bind:data />
+	
+{:else if curTab=='posts'}
+	
+	<SortablePosts bind:data bind:items bind:cat={cat.id} />
 	
 {/if}
 

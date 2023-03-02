@@ -75,6 +75,7 @@
         console.log(curComponent)
         
         action = 'edit'
+        curTab = 'content'
         
         }
     
@@ -363,8 +364,6 @@
     border-left: 0;
     width: 350px;
   }
-  
- 
   
   .input{
     margin-bottom: 15px;
