@@ -60,7 +60,7 @@ const flipDurationMs = 300;
 
 <div class="field has-addons">
   <div class="control">
-	<input class="input" type="text" placeholder="Page title" bind:value={title}>
+	<input class="input" type="text" placeholder="Category title" bind:value={title}>
   </div>
   <div class="control">
 	<a class="button" on:click={addCat}>

@@ -163,3 +163,24 @@ body {
   margin-top: 2px;
   margin-bottom: 20px;
 }
+
+.wdgt-body {
+  position: relative;
+}
+
+.wdgt-footer {
+  display: block;
+  position: fixed;
+  bottom: 20px !important;
+  right: 20px !important;
+}
+
+.button .fas {
+  margin-right: 5px;
+}
+
+.close {
+  position: absolute;
+  top: 20px;
+  right: 18px;
+}

@@ -24,6 +24,8 @@
   let action = false;
   let curIndex = false;
   let curComponent = false;
+  
+  let curTab = 'content';
 
   
   // send the data
@@ -167,11 +169,28 @@
 
 <div class="wdgt content-editor" in:fly="{{ x: 350, duration: 500 }}" out:fly="{{ x: 350, duration: 150 }}">
   
+ <span class="close" on:click={closeEditor}>&times;</span>
+  
+  
+ <div class="tabs">
+   <ul>
+     <li class:is-active={curTab=='content'} on:click={()=>curTab='content'}><a>Content</a></li>
+     <li  class:is-active={curTab=='options'} on:click={()=>curTab='options'}><a>Options</a></li>
+   </ul>
+ </div>
+  
+  
+  <!--
   <h3 class="fl-left">Edit</h3>
   
- <span class="close" on:click={closeEditor}>&times;</span>
+
+ 
+ -->
+<div class="wdgt-body">
 
 <div class="clear"></div>
+
+{#if curTab == 'content'}
 
   {#each Object.keys(curComponent.fields) as mykey}
   
@@ -213,20 +232,33 @@
   
   {/each}
   
-  <div class="label">Options</div>
+  {:else if curTab=='options'}
+  
+  <div class="label">Move</div>
   
 
-  <button class="button" on:click={()=>moveItem(data.items[curIndex].id)}><i class="fas fa-arrow-down"></i> &nbsp;Move Down</button>
+  <button class="button mb-15" on:click={()=>moveItem(data.items[curIndex].id)}><i class="fas fa-arrow-down"></i> &nbsp;Move Down</button>
   
-  <button class="button is-danger" on:click={()=>deleteItem(data.items[curIndex].id)}><i class="fas fa-trash"></i> &nbsp;Delete</button>
+  
+  <div class="label">Delete</div>
+  <button class="button" on:click={()=>deleteItem(data.items[curIndex].id)}><i class="fas fa-trash"></i> &nbsp;Delete</button>
+  
+  {/if}
 
+
+    
+
+</div>
+
+<div class="wdgt-footer">
+  <button class="button is-link btn-save" on:click={closeEditor}>Save</button>
+</div>
   
-  <div class="clear mb-4"></div>
-  
-  <button class="button is-link" on:click={closeEditor}>Save</button>
-  
-  
+
 </div>  
+
+
+  
 {/if}
 
 
@@ -257,11 +289,9 @@
 {#if action=='design'}
   <div class="wdgt content-editor editor-start" in:fly="{{ x: -350, duration: 500 }}" out:fly="{{ x: -350, duration: 150 }}">
     
-    <h3 class="fl-left">Design</h3>
+ <span class="close" on:click={()=>action=false}>&times;</span>
     
-   <span class="close fl-right mb-15" on:click={() => action = false}>&times;</span>
-  
-  <div class="clear"></div>
+
   
   <Design bind:data />
     
@@ -329,7 +359,7 @@
     left: 0;
     border-right: 1px solid #ced4da;
     border-left: 0;
-    width: 300px;
+    width: 350px;
   }
   
  

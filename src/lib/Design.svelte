@@ -7,6 +7,8 @@
 	export let data;
 	let font = data.design.font;
 	let hex = data.design.color1; 
+	
+	let curTab = 'design'
 
 	
 	function setColor(e) {
@@ -22,11 +24,7 @@
 	  
 	  data.design.color1 = myhex;
 	  data.design.color2 = myhex2;
-	  
-	 /*
-	  localStorage.setItem('bg-color', hex);
-	  localStorage.setItem('fg-color', hex2);
-	  */
+
 	
 	}
 	
@@ -64,19 +62,19 @@
 	
 
 
-/*
-	import { onMount } from 'svelte';
-
-	onMount(async () => {
-		fontPicker = new FontPicker(
-			"AIzaSyAZirjRxHjC-MiqByhoqjRgl1N1YVTxyEA", // Google API key
-			"Open Sans", // Default font
-			{ limit: 30 }, // Additional options
-		);
-	});
-	*/
-
 </script>
+
+
+  
+ <div class="tabs">
+   <ul>
+	 <li class:is-active={curTab=='design'} on:click={()=>curTab='design'}><a>Design</a></li>
+	 <li  class:is-active={curTab=='categories'} on:click={()=>curTab='categories'}><a>Categories</a></li>
+   </ul>
+ </div>
+ 
+ 
+ {#if curTab=='design'}
 
 <div class="label">Color</div>
 <ul class="list-group mb-15">
@@ -91,11 +89,13 @@
 
 <FontPicker bind:data />
 
+{:else if curTab=='categories'}
 
-
-<div class="label mt-3">Pages</div>
+<div class="label mt-3">Categories</div>
 
 <SortableCategories bind:data />
+	
+{/if}
 
 
 <style>
