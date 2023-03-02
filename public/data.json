@@ -7,9 +7,27 @@
     "color2": "#000000",
     "font": "Rubik"
   },
+  "categories": [
+    {
+      "id": 1,
+      "title": "Home",
+      "slug": "home"
+    },
+    {
+      "id": 2,
+      "title": "About",
+      "slug": "about"
+    },
+    {
+      "id": 3,
+      "title": "Contact",
+      "slug": "contact"
+    }
+  ],
   "items": [
     {
       "id": "item-1",
+      "category": 1,
       "component": "Header",
       "title": "Svelte Pagebuilder",
       "subtitle": "Lorem ipsum dolor site amet.",
@@ -19,12 +37,14 @@
     },
     {
       "id": "item-2",
+      "category": 1,
       "component": "Post",
       "title": "Lorem Ipsum",
       "body": "<p>Vivamus in nisi commodo, auctor magna vel, viverra turpis. Quisque dapibus risus nec justo euismod, id fringilla dui lobortis. Mauris vitae semper arcu. Ut ac lorem felis.</p>"
     },
     {
       "id": "item-3",
+      "category": 2,
       "component": "News",
       "title": "Lorem Lila",
       "body": "<p>Vivamus ac volutpat justo. Quisque pharetra lectus vel neque iaculis, ac rhoncus leo pretium. In fringilla a purus eget tempor. Interdum et malesuada fames ac ante ipsum primis in faucibus.</p>"

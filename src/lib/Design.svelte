@@ -77,6 +77,11 @@
 
 </script>
 
+<div class="label">Color</div>
+<div class="picker">
+<ColorPicker bind:hex label="&nbsp;" on:input={setColor} />
+</div>
+
 
 <div class="label">Font</div>
 <div class="list-group">
@@ -89,9 +94,26 @@
 <a class="list-group-item" on:click={()=>setFont('Georgia')}>{#if font=='Georgia'}<i class="fas fa-check mr-2"></i>&nbsp;{/if} Georgia</a>
 </div>
 
-<div class="label mt-3">Color</div>
-<div class="picker">
-<ColorPicker bind:hex label="&nbsp;" on:input={setColor} />
+
+<div class="label mt-3">Pages</div>
+
+<div class="field has-addons">
+  <div class="control">
+	<input class="input" type="text" placeholder="Page title">
+  </div>
+  <div class="control">
+	<a class="button">
+	  Add
+	</a>
+  </div>
+</div>
+
+
+<div class="list-group">
+{#each data.categories as item}
+
+<a class="list-group-item">{item.title}</a>
+{/each}
 </div>
 
 

@@ -1,3 +1,10 @@
+<svelte:head>
+<link
+  rel="stylesheet"
+  href="https://cdn.jsdelivr.net/npm/bulma@0.9.4/css/bulma.min.css"
+/>
+</svelte:head>
+
 <script>
   import { onMount } from 'svelte';
   import { fade, fly } from 'svelte/transition';
@@ -157,11 +164,11 @@
  
 {#if action=='edit'}
 
-<div class="content-editor" in:fly="{{ x: 350, duration: 500 }}" out:fly="{{ x: 350, duration: 150 }}">
+<div class="wdgt content-editor" in:fly="{{ x: 350, duration: 500 }}" out:fly="{{ x: 350, duration: 150 }}">
   
-  <h5 class="float-start">Edit</h5>
+  <h3 class="fl-left">Edit</h3>
   
- <button type="button" class="btn-close float-end mb-3" aria-label="Close" on:click={closeEditor}></button>
+ <span class="close" on:click={closeEditor}>&times;</span>
 
 <div class="clear"></div>
 
@@ -172,7 +179,7 @@
 
   {#if curComponent.fields[mykey] == 'txt'}
 
-    <input type="text" class="form-control" bind:value={data.items[curIndex][mykey]} />
+    <input type="text" class="input" bind:value={data.items[curIndex][mykey]} />
   {/if}
   
   
@@ -188,7 +195,7 @@
   
     
     
-    <textarea class="form-control" bind:value={data.items[curIndex][mykey]}></textarea>
+    <textarea class="input" bind:value={data.items[curIndex][mykey]}></textarea>
    
   {/if}
 
@@ -207,16 +214,15 @@
   
   <div class="label">Options</div>
   
-  <div class="btn-group w-100">
-  <button class="btn btn-outline-secondary" on:click={()=>moveItem(data.items[curIndex].id)}><i class="fas fa-arrow-down"></i> &nbsp;Move Down</button>
+
+  <button class="button" on:click={()=>moveItem(data.items[curIndex].id)}><i class="fas fa-arrow-down"></i> &nbsp;Move Down</button>
   
-  <button class="btn btn-outline-secondary" on:click={()=>deleteItem(data.items[curIndex].id)}><i class="fas fa-trash"></i> &nbsp;Delete</button>
- 
-</div>
+  <button class="button is-danger" on:click={()=>deleteItem(data.items[curIndex].id)}><i class="fas fa-trash"></i> &nbsp;Delete</button>
+
   
   <div class="clear mb-4"></div>
   
-  <button class="btn btn-dark" on:click={closeEditor}>Save</button>
+  <button class="button is-link" on:click={closeEditor}>Save</button>
   
   
 </div>  
@@ -225,11 +231,11 @@
 
 {#if action=='add'}
 
-<div class="content-editor editor-start" in:fly="{{ x: -350, duration: 500 }}" out:fly="{{ x: -350, duration: 150 }}">
+<div class="wdgt content-editor editor-start" in:fly="{{ x: -350, duration: 500 }}" out:fly="{{ x: -350, duration: 150 }}">
   
-  <h5 class="float-start">Add Content</h5>
+  <h3 class="fl-left">Add Content</h3>
   
- <button type="button" class="btn-close float-end mb-3" aria-label="Close" on:click={() => action = false}></button>
+ <span class="close mb-10" on:click={() => action = false}>&times;</span>
 
 <div class="clear"></div>
 
@@ -248,11 +254,11 @@
 
 
 {#if action=='design'}
-  <div class="content-editor editor-start" in:fly="{{ x: -350, duration: 500 }}" out:fly="{{ x: -350, duration: 150 }}">
+  <div class="wdgt content-editor editor-start" in:fly="{{ x: -350, duration: 500 }}" out:fly="{{ x: -350, duration: 150 }}">
     
-    <h5 class="float-start">Design</h5>
+    <h3 class="fl-left">Design</h3>
     
-   <button type="button" class="btn-close float-end mb-3" aria-label="Close" on:click={() => action = false}></button>
+   <span class="close fl-right mb-15" on:click={() => action = false}>&times;</span>
   
   <div class="clear"></div>
   
@@ -327,7 +333,7 @@
   
  
   
-  .form-control{
+  .input{
     margin-bottom: 15px;
   }
   
@@ -368,6 +374,10 @@
   
   .grow { transition: all .2s ease-in-out; }
   .grow:hover { transform: scale(1.1); cursor: pointer; }
+  
+  
+  
+ 
 </style>
 
 

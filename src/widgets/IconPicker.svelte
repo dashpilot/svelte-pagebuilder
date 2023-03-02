@@ -19,14 +19,14 @@
 	
 </script>
 
-<button class="btn btn-outline-secondary mb-3" on:click={()=>showPicker=true}><i class="{item[key]}"></i> &nbsp;Select Icon</button>
+<button class="button mb-15" on:click={()=>showPicker=true}><i class="{item[key]}"></i> &nbsp;Select Icon</button>
 
 {#if showPicker}
 <div class="backdrop">
   <div class="modal-screen">
 	<div class="editor-header">
-	  <h4 class="float-start">Icon Picker</h4>
-	  <button type="button" class="btn-close float-end" aria-label="Close" on:click={()=>showPicker=false}></button>
+	  <h3 class="fl-left">Icon Picker</h3>
+	  <span class="close fl-right" aria-label="Close" on:click={()=>showPicker=false}>&times;</span>
 	 
 	</div>
 	<div class="clear mb-3"></div>
