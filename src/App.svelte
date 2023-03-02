@@ -63,12 +63,12 @@
         
         
         let id = e.originalTarget.closest('.edit').getAttribute('id');
-        let index = data.items.findIndex(x => x.id == id);
+        let index = data.posts.findIndex(x => x.id == id);
         
         curIndex = index;
        
         
-        let mycomponent = data.items[curIndex].component;
+        let mycomponent = data.posts[curIndex].component;
         
         curComponent = components.filter(x => x.component == mycomponent)[0]
         
@@ -110,7 +110,7 @@
     
     console.log(newItem)
     
-    data.items.unshift(newItem);
+    data.posts.unshift(newItem);
     
     data = data;
     
@@ -134,7 +134,7 @@
   function deleteItem(id) {
     let r = confirm('Are you sure you want to delete this item?');
     if (r == true) {
-      data.items.splice(data.items.findIndex(x => x.id === id), 1);
+      data.posts.splice(data.posts.findIndex(x => x.id === id), 1);
       data = data;
       
       setTimeout(()=>{
@@ -149,12 +149,12 @@
   }
   
   function moveItem(id) {
-    var from = data.items.findIndex(x => x.id == id);
+    var from = data.posts.findIndex(x => x.id == id);
     var to = from + 1;
     console.log(from);
     console.log(to);
-    var f = data.items.splice(from, 1)[0];
-    data.items.splice(to, 0, f);
+    var f = data.posts.splice(from, 1)[0];
+    data.posts.splice(to, 0, f);
     data = data;
   }
   
@@ -199,15 +199,15 @@
 
   {#if curComponent.fields[mykey] == 'txt'}
 
-    <input type="text" class="input" bind:value={data.items[curIndex][mykey]} />
+    <input type="text" class="input" bind:value={data.posts[curIndex][mykey]} />
   {/if}
   
   
   {#if curComponent.fields[mykey] == 'rte'}
-    {#key data.items[curIndex].id}
+    {#key data.posts[curIndex].id}
     
     
-    <TipTap bind:item={data.items[curIndex]} bind:key={mykey} />
+    <TipTap bind:item={data.posts[curIndex]} bind:key={mykey} />
     {/key}
   {/if}
   
@@ -215,19 +215,19 @@
   
     
     
-    <textarea class="input" bind:value={data.items[curIndex][mykey]}></textarea>
+    <textarea class="input" bind:value={data.posts[curIndex][mykey]}></textarea>
    
   {/if}
 
   
   {#if curComponent.fields[mykey] == 'img'}
     
-    <Image bind:item={data.items[curIndex]} bind:key={mykey} />
+    <Image bind:item={data.posts[curIndex]} bind:key={mykey} />
   {/if}
   
   {#if curComponent.fields[mykey] == 'icn'}
  
-  <IconPicker bind:item={data.items[curIndex]} bind:key={mykey} />
+  <IconPicker bind:item={data.posts[curIndex]} bind:key={mykey} />
   {/if}
   
   {/each}
@@ -237,11 +237,11 @@
   <div class="label">Move</div>
   
 
-  <button class="button mb-15" on:click={()=>moveItem(data.items[curIndex].id)}><i class="fas fa-arrow-down"></i> &nbsp;Move Down</button>
+  <button class="button mb-15" on:click={()=>moveItem(data.posts[curIndex].id)}><i class="fas fa-arrow-down"></i> &nbsp;Move Down</button>
   
   
   <div class="label">Delete</div>
-  <button class="button" on:click={()=>deleteItem(data.items[curIndex].id)}><i class="fas fa-trash"></i> &nbsp;Delete</button>
+  <button class="button" on:click={()=>deleteItem(data.posts[curIndex].id)}><i class="fas fa-trash"></i> &nbsp;Delete</button>
   
   {/if}
 
