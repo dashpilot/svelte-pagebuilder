@@ -83,44 +83,39 @@
 
 <div class="backdrop">
 	
-	<div class="modal" style="display:block;">
-	  <div class="modal-dialog">
-		<div class="modal-content">
-		  <div class="modal-header pt-4">
-			<h5 class="modal-title">Publish your page</h5>
-			<button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close" on:click="{() => action = false}"></button>
-		  </div>
-		  <div class="modal-body">
-			  
-			  {#if loading}
-			  Publishing...
-			  
-			  {:else if !done}
-			  Publish your page
-			  
-			  {/if}
-			  
-			  {#if done}
-			  Your site has been published!
-			  {/if}
-			  
-			 
-		  </div>
-		  <div class="modal-footer">
-			  
-			  <button class="btn btn-dark" on:click={doPublish}>
-				  
-				  {#if loading}
-				<i class="fas fa-spinner fa-spin"></i> 
-				  {:else}
-				  <i class="fas fa-rocket"></i> 
-				  {/if}
-				  
-				  &nbsp;Publish</button>
-			  
-		  </div>
-		</div>
-		
+	
+	<div class="modal" style="display: block;">
+	  <div class="modal-background"></div>
+	  <div class="modal-card">
+		<header class="modal-card-head">
+		  <p class="modal-card-title">Publish your page</p>
+		  <button class="delete" aria-label="close" on:click={()=>action=false}></button>
+		</header>
+		<section class="modal-card-body">
+		  {#if loading}
+			Publishing...
+			
+			{:else if !done}
+			Publish your page
+			
+			{/if}
+			
+			{#if done}
+			Your site has been published!
+			{/if}
+		</section>
+		<footer class="modal-card-foot">
+		  <button class="button is-success" on:click={doPublish}>
+			
+			{#if loading}
+		  <i class="fas fa-spinner fa-spin"></i> 
+			{:else}
+			<i class="fas fa-rocket"></i> 
+			{/if}
+			
+			&nbsp;Publish</button>
+		</footer>
 	  </div>
 	</div>
+
 </div>
