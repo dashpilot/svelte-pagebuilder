@@ -1,9 +1,8 @@
 <script>
 import { onMount } from 'svelte';
+export let data;
 
-
-
-let font = 'Lobster';
+let font = data.design.font;
 let fontList;
 
 function selectFont(){
@@ -11,7 +10,7 @@ function selectFont(){
 	
 	WebFont.load({
 		google: {
-			families: [font+':300,400,700']
+			families: [font+':400,600,700']
 		},
 		loading: function() {
 			console.log("Fonts are being loaded");
@@ -20,6 +19,7 @@ function selectFont(){
 			console.log("Fonts have been rendered")
 			let root = document.documentElement;
 			root.style.setProperty('--font', font);
+			data.design.font = font;
 			// root.style.setProperty('--spacing', spacing);
 			
 		}
@@ -27,13 +27,14 @@ function selectFont(){
 }
 
 onMount(async () => {
-	const response = await fetch('google-fonts.json');
+	const response = await fetch('google-fonts-selection.json');
 	fontList = await response.json();
 });
 
 </script>
 
 {#if fontList}
+
 <div class="select is-fullwidth mb-10">
 <select bind:value={font} on:change="{selectFont}">
 	{#each fontList as item}
