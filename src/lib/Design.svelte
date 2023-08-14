@@ -78,11 +78,11 @@
 
 
   
- <nav>
+ <div class="wdgt-nav">
 	 <a class:active={curTab=='design'} on:click={()=>curTab='design'}>Design</a>
 	 <a class:active={curTab=='categories'} on:click={()=>curTab='categories'}>Categories</a>
 	 <a class:active={curTab=='posts'} on:click={()=>curTab='posts'}>Posts</a>
- </nav>
+ </div>
  
  
  {#if curTab=='design'}

@@ -64,6 +64,7 @@
     
     setTimeout(()=>{
       makeEditable()
+    
       
       // get the components from the SPA
       components = window.components;
@@ -90,8 +91,7 @@
         let index = data.posts.findIndex(x => x.id == id);
         
         curIndex = index;
-       
-        
+  
         let mycomponent = data.posts[curIndex].component;
         
         curComponent = components.filter(x => x.component == mycomponent)[0]
@@ -184,10 +184,10 @@
  <span class="close" on:click={closeEditor}>&times;</span>
   
   
-<nav>
+<div class="wdgt-nav">
      <a class:active={curTab=='content'} on:click={()=>curTab='content'}>Content</a>
      <a class:active={curTab=='options'} on:click={()=>curTab='options'}>Options</a>
-</nav>
+</div>
   
   
   <!--
@@ -204,16 +204,19 @@
 
   {#each Object.keys(curComponent.fields) as mykey}
   
-  <div class="label">{mykey.replace('_', ' ')}</div>
+
 
 
   {#if curComponent.fields[mykey] == 'txt'}
+  
+  <div class="label">{mykey.replace('_', ' ')}</div>
 
     <input type="text" class="form-control" bind:value={data.posts[curIndex][mykey]} />
   {/if}
   
   
   {#if curComponent.fields[mykey] == 'rte'}
+  <div class="label">{mykey.replace('_', ' ')}</div>
     {#key data.posts[curIndex].id}
     
     
@@ -223,7 +226,7 @@
   
   {#if curComponent.fields[mykey] == 'txta'}
   
-    
+    <div class="label">{mykey.replace('_', ' ')}</div>
     
     <textarea class="form-control" bind:value={data.posts[curIndex][mykey]}></textarea>
    
@@ -231,12 +234,12 @@
 
   
   {#if curComponent.fields[mykey] == 'img'}
-    
+    <div class="label">{mykey.replace('_', ' ')}</div>
     <Image bind:item={data.posts[curIndex]} bind:key={mykey} />
   {/if}
   
   {#if curComponent.fields[mykey] == 'icn'}
- 
+ <div class="label">{mykey.replace('_', ' ')}</div>
   <IconPicker bind:item={data.posts[curIndex]} bind:key={mykey} />
   {/if}
   

@@ -49,6 +49,10 @@
 
 */
 
+.wdgt {
+  font-family: Inter, Avenir, Helvetica, Arial, sans-serif;
+}
+
 .wdgt button.primary {
   border: none;
   border-radius: 4px;
@@ -65,12 +69,12 @@
   margin-bottom: 15px;
 }
 
-.wdgt nav {
+.wdgt-nav {
   margin-bottom: 20px;
   border-bottom: 1px solid #ddd;
 }
 
-.wdgt nav a {
+.wdgt-nav a {
   padding: 10px 10px;
   cursor: pointer;
   display: inline-block;
@@ -79,8 +83,14 @@
   border-bottom: 3px solid transparent;
 }
 
-.wdgt nav a.active {
+.wdgt-nav a.active {
   border-bottom: 3px solid #6075e6;
+}
+
+.input-group-append .btn-outline-secondary {
+  border-top-left-radius: 0;
+  border-bottom-left-radius: 0;
+  border: 1px solid #cfd3da;
 }
 
 /* --- edits --- */
@@ -102,7 +112,8 @@
 
 .ProseMirror {
   display: block;
-  min-height: 150px !important;
+  height: 150px !important;
+  overflow-y: auto;
   border: 1px solid #ddd;
   padding: 15px;
   outline: none;
@@ -111,6 +122,13 @@
   margin-top: 0;
   border-top: 0;
   background-color: #ffffff;
+  font-size: 18px !important;
+  line-height: 26px !important;
+}
+
+.ProseMirror p {
+  font-size: 18px !important;
+  line-height: 26px !important;
 }
 
 .editor-wide .ProseMirror {

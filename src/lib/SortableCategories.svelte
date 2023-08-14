@@ -56,9 +56,9 @@ const flipDurationMs = 300;
 
 <div class="label mt-3">Add Category</div>
 <div class="input-group mb-1">
-  <input type="text" class="form-control" placeholder="Category Name" aria-label="Recipient's username" aria-describedby="basic-addon2"  bind:value={title}>
+  <input type="text" class="form-control" placeholder="Category Name" aria-describedby="basic-addon2"  bind:value={title}>
   <div class="input-group-append">
-	<button class="btn btn-outline-secondary exclude" type="button" on:click={addCat}>Add</button>
+	<button class="btn btn-outline-secondary" type="button" on:click={addCat}>Add</button>
   </div>
 </div>
 
