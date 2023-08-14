@@ -53,7 +53,7 @@
 
   
   // send the data
-  $: data && window.relay(data);
+  // $: data && window.relay(data);
   
   onMount(async () => {
   
@@ -68,7 +68,7 @@
       // get the components from the SPA
       components = window.components;
       data = window.data;
-    }, 1500)
+    }, 250)
     
   });
   
