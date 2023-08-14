@@ -32,6 +32,8 @@
   let curTab = 'content';
   
   let wideEditor;
+  
+  let base = "https://svelte-pagebuilder.vercel.app/";
 
   
   // send the data
@@ -314,11 +316,11 @@
 
 
 
-<img src="img/settings.png" class="grow" on:click={()=>action='design'} />
+<img src="{base}img/settings.png" class="grow" on:click={()=>action='design'} />
 
-<img src="img/plus.png" class="grow" on:click={()=>action='add'} />
+<img src="{base}img/plus.png" class="grow" on:click={()=>action='add'} />
 
-<img src="img/publish.png" class="grow" on:click={()=>action='publish'} />
+<img src="{base}img/publish.png" class="grow" on:click={()=>action='publish'} />
 
 </div>
 
