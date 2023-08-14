@@ -1,12 +1,17 @@
 <svelte:head>
+
+<!--
 <link
   rel="stylesheet"
   href="https://cdn.jsdelivr.net/npm/bulma@0.9.4/css/bulma.min.css"
 />
+
+
 <link
   rel="stylesheet"
   href="bulma-switch.css"
 />
+-->
 <script src="https://ajax.googleapis.com/ajax/libs/webfont/1.6.26/webfont.js"></script>
 
     <link
@@ -179,12 +184,10 @@
  <span class="close" on:click={closeEditor}>&times;</span>
   
   
- <div class="tabs">
-   <ul>
-     <li class:is-active={curTab=='content'} on:click={()=>curTab='content'}><a>Content</a></li>
-     <li  class:is-active={curTab=='options'} on:click={()=>curTab='options'}><a>Options</a></li>
-   </ul>
- </div>
+<nav>
+     <a class:active={curTab=='content'} on:click={()=>curTab='content'}>Content</a>
+     <a class:active={curTab=='options'} on:click={()=>curTab='options'}>Options</a>
+</nav>
   
   
   <!--
@@ -206,7 +209,7 @@
 
   {#if curComponent.fields[mykey] == 'txt'}
 
-    <input type="text" class="input" bind:value={data.posts[curIndex][mykey]} />
+    <input type="text" class="form-control" bind:value={data.posts[curIndex][mykey]} />
   {/if}
   
   
@@ -222,7 +225,7 @@
   
     
     
-    <textarea class="input" bind:value={data.posts[curIndex][mykey]}></textarea>
+    <textarea class="form-control" bind:value={data.posts[curIndex][mykey]}></textarea>
    
   {/if}
 
@@ -255,7 +258,7 @@
   
   
   <div class="label">Delete</div>
-  <button class="button" on:click={()=>deleteItem(data.posts[curIndex].id)}><i class="fas fa-trash"></i> &nbsp;Delete</button>
+  <button class="btn btn-outline-secondary" on:click={()=>deleteItem(data.posts[curIndex].id)}><i class="fas fa-trash"></i> &nbsp;Delete</button>
   
   {/if}
 
@@ -265,7 +268,7 @@
 </div>
 
 <div class="wdgt-footer">
-  <button class="button is-link btn-save" on:click={closeEditor}>Save</button>
+  <button class="primary btn-save" on:click={closeEditor}>Save</button>
 </div>
   
 

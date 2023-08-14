@@ -54,32 +54,28 @@ const flipDurationMs = 300;
 	}
 </script>
 
-
 <div class="label mt-3">Add Category</div>
-<div class="field has-addons">
-  <div class="control">
-	<input class="input" type="text" placeholder="Category title" bind:value={title}>
-  </div>
-  <div class="control">
-	<a class="button" on:click={addCat}>
-	  Add
-	</a>
+<div class="input-group mb-1">
+  <input type="text" class="form-control" placeholder="Category Name" aria-label="Recipient's username" aria-describedby="basic-addon2"  bind:value={title}>
+  <div class="input-group-append">
+	<button class="btn btn-outline-secondary exclude" type="button" on:click={addCat}>Add</button>
   </div>
 </div>
 
 
-<div class="label mt-4">Categories</div>	
+
+<div class="label">Drag to reorder</div>	
 
   <ul class="list-group entries-list" use:dndzone="{{items, flipDurationMs}}" on:consider="{handleDndConsider}" on:finalize="{handleDndFinalize}">
 	{#each items as item(item.id)}
 	<li class="list-group-item item-list" animate:flip="{{duration: flipDurationMs}}">
 		
 	<div class="row">
-		<div class="col-9 text-truncate"><a href="/category/{item.id}/edit" data-navigo>
+		<div class="col-9 text-truncate">
 			
 			{#if item.title==''}Untitled{:else}{item.title}{/if}
 			
-		</a></div>
+		</div>
 		<div class="col-3 text-end">
 			{#if item.slug!=='home'}
 			<button class="btn btn-outline-secondary btn-delete" on:click={()=>deleteCat(item.id)}><i class="fas fa-trash"></i></button>

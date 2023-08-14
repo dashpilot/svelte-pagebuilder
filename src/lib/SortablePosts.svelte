@@ -33,7 +33,7 @@ const flipDurationMs = 300;
   }
 </script>
 
-	
+	<div class="label">Drag to reorder</div>
   <ul class="list-group entries-list" use:dndzone="{{items, flipDurationMs}}" on:consider="{handleDndConsider}" on:finalize="{handleDndFinalize}">
 	{#each items as item(item.id)}
 	<li class="list-group-item item-list" animate:flip="{{duration: flipDurationMs}}">

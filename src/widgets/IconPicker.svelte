@@ -19,7 +19,7 @@
 	
 </script>
 
-<button class="button mb-15" on:click={()=>showPicker=true}><i class="{item[key]}"></i> &nbsp;Select Icon</button>
+<button class="btn btn-outline-secondary mb-15" on:click={()=>showPicker=true}><i class="{item[key]}"></i> &nbsp;Select Icon</button>
 
 {#if showPicker}
 <div class="backdrop">

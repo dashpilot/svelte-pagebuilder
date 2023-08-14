@@ -40,11 +40,11 @@ onDestroy(async () => {
 
 {#if fontList}
 
-<div class="select is-fullwidth mb-10">
-<select bind:value={font} on:change="{selectFont}">
+
+<select class="form-control" bind:value={font} on:change="{selectFont}">
 	{#each fontList as item}
 	<option value="{item.family}">{item.family}</option>
 {/each}
 </select>
-</div>
+
 {/if}

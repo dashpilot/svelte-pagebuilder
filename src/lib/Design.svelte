@@ -78,17 +78,16 @@
 
 
   
- <div class="tabs">
-   <ul>
-	 <li class:is-active={curTab=='design'} on:click={()=>curTab='design'}><a>Design</a></li>
-	 <li  class:is-active={curTab=='categories'} on:click={()=>curTab='categories'}><a>Categories</a></li>
-	 <li  class:is-active={curTab=='posts'} on:click={()=>curTab='posts'}><a>Posts</a></li>
-   </ul>
- </div>
+ <nav>
+	 <a class:active={curTab=='design'} on:click={()=>curTab='design'}>Design</a>
+	 <a class:active={curTab=='categories'} on:click={()=>curTab='categories'}>Categories</a>
+	 <a class:active={curTab=='posts'} on:click={()=>curTab='posts'}>Posts</a>
+ </nav>
  
  
  {#if curTab=='design'}
 
+<!--
 <div class="label">Color</div>
 <ul class="list-group mb-15">
 	<li class="list-group-item">
@@ -97,6 +96,7 @@
 		</div>
 	</li>
 </ul>
+-->
 
 <div class="label">Font</div>
 

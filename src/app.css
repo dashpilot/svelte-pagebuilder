@@ -1,5 +1,4 @@
-:root,
-body {
+.wdgt {
   font-family: Inter, Avenir, Helvetica, Arial, sans-serif;
   font-size: 16px;
   line-height: 24px;
@@ -9,6 +8,79 @@ body {
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
   -webkit-text-size-adjust: 100%;
+}
+
+/* general styles 
+
+.wdgt input {
+  margin-bottom: 15px;
+  padding: 7px 12px;
+  border: 1px solid #ddd;
+  border-radius: 4px;
+  width: 100%;
+}
+
+.wdgt input:focus {
+  outline: none;
+  box-shadow: none;
+  border: 1px solid #6075e6;
+}
+
+.wdgt select {
+  margin-bottom: 15px;
+  padding: 10px 20px;
+  border: 1px solid #ddd;
+  border-radius: 4px;
+  width: 100%;
+  background-color: white;
+}
+
+.wdgt button:not(.exclude) {
+  border: 1px solid #ddd;
+  border-radius: 4px;
+  padding: 8px 15px;
+  background-color: white;
+}
+
+.wdgt button:hover {
+  border: 1px solid #777;
+}
+
+.wdgt button.primary {
+  border: none;
+  border-radius: 4px;
+  padding: 8px 20px;
+  background-color: #6075e6;
+  color: white;
+}
+
+.wdgt button.primary:hover {
+  background-color: #4655c3;
+}
+
+
+*/
+
+.form-control {
+  margin-bottom: 15px;
+}
+
+.wdgt nav {
+  margin-bottom: 20px;
+  border-bottom: 1px solid #ddd;
+}
+
+.wdgt nav a {
+  padding: 10px 10px;
+  cursor: pointer;
+  display: inline-block;
+  text-decoration: none;
+  color: black;
+  border-bottom: 3px solid transparent;
+}
+
+.wdgt nav a.active {
+  border-bottom: 3px solid #6075e6;
 }
 
 /* --- edits --- */
@@ -71,8 +143,9 @@ body {
 .wdgt .label {
   text-transform: uppercase;
   letter-spacing: 0.03em;
-  font-size: 12px;
-  margin-bottom: 2px !important;
+  font-size: 14px;
+  font-weight: 600;
+  margin-bottom: 3px !important;
 }
 
 .color-picker .container {
