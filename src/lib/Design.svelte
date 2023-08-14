@@ -100,7 +100,7 @@
 
 <div class="label">Font</div>
 
-<FontPicker bind:data />
+<FontPicker bind:data bind:base />
 
 {:else if curTab=='categories'}
 
