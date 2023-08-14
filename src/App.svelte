@@ -8,6 +8,17 @@
   href="bulma-switch.css"
 />
 <script src="https://ajax.googleapis.com/ajax/libs/webfont/1.6.26/webfont.js"></script>
+
+    <link
+  rel="stylesheet"
+  href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css"
+/>
+
+   <link
+  rel="stylesheet"
+  href="https://svelte-pagebuilder.vercel.app/assets/index.css"
+/>
+
 </svelte:head>
 
 <script>
@@ -230,7 +241,7 @@
   
   {:else if curTab=='options'}
   
-  
+  <!--
   <div class="label">Expand Editor</div>
   <div class="field">
     <label class="switch">
@@ -239,6 +250,7 @@
     <span class="control-label">expand</span>
     </label>
   </div>
+-->
   
   
   
