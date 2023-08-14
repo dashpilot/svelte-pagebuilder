@@ -53,7 +53,7 @@
 
   
   // send the data
-  // $: data && window.relay(data);
+  $: data && window.relay(data);
   
   onMount(async () => {
   
