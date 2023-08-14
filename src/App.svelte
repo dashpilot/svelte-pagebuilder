@@ -307,7 +307,7 @@
     
 
   
-  <Design bind:data />
+  <Design bind:data bind:base />
     
   </div>  
 {/if}

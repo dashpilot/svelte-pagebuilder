@@ -6,6 +6,8 @@
 	
 	
 	export let data;
+	export let base;
+	
 	let font = data.design.font;
 	let hex = data.design.color1; 
 	

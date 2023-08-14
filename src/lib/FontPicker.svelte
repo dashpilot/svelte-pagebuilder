@@ -1,6 +1,7 @@
 <script>
 import { onMount, onDestroy } from 'svelte';
 export let data;
+export let base;
 
 let font = data.design.font;
 let fontList;
@@ -26,7 +27,7 @@ function selectFont(){
 }
 
 onMount(async () => {
-	const response = await fetch('google-fonts-selection.json');
+	const response = await fetch(base+'google-fonts-selection.json');
 	fontList = await response.json();
 });
 
