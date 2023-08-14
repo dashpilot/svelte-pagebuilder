@@ -112,10 +112,11 @@
 
 .ProseMirror {
   display: block;
-  height: 150px !important;
+  height: 180px !important;
   overflow-y: auto;
   border: 1px solid #ddd;
   padding: 15px;
+  padding-top: 10px !important;
   outline: none;
   border-radius: 0 0 6px 6px;
   margin-bottom: 15px;
@@ -123,12 +124,18 @@
   border-top: 0;
   background-color: #ffffff;
   font-size: 18px !important;
-  line-height: 26px !important;
+  line-height: 27px !important;
+  font-family: system-ui, -apple-system, "Segoe UI", Roboto, "Helvetica Neue",
+    "Noto Sans", "Liberation Sans", Arial, sans-serif, "Apple Color Emoji",
+    "Segoe UI Emoji", "Segoe UI Symbol", "Noto Color Emoji";
 }
 
 .ProseMirror p {
   font-size: 18px !important;
-  line-height: 26px !important;
+  line-height: 27px !important;
+  font-family: system-ui, -apple-system, "Segoe UI", Roboto, "Helvetica Neue",
+    "Noto Sans", "Liberation Sans", Arial, sans-serif, "Apple Color Emoji",
+    "Segoe UI Emoji", "Segoe UI Symbol", "Noto Color Emoji";
 }
 
 .editor-wide .ProseMirror {
