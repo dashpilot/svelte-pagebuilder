@@ -68,7 +68,7 @@
       // get the components from the SPA
       components = window.components;
       data = window.data;
-    }, 250)
+    }, 1500)
     
   });
   
